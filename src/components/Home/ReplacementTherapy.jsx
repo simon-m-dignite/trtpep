@@ -61,7 +61,7 @@ const ReplacementTherapy = () => {
             </div>
           </div>
           <div className="mt-2">
-          <button className="bg-blue-900 flex items-center gap-1 text-white text-sm font-medium px-6 py-3 hover:bg-blue-950 transition-all duration-300 rounded-full uppercase">
+          <button className="bg-blue-950 flex items-center gap-1 text-white text-sm font-medium px-6 py-3 hover:bg-blue-950 transition-all duration-300 rounded-full uppercase">
               enroll now
               <RiArrowRightUpLine className="text-lg"/>
             </button>

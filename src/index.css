@@ -17,11 +17,11 @@
 
 .home-hero {
   background-image: linear-gradient(
-      rgba(8, 44, 101, 0.4),
-      rgba(8, 44, 101, 0.4)
+      rgba(2, 43, 108, 0.4),
+      rgba(2, 43, 108, 0.4)
     ),
     url("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  /* background-image: url('https://img.freepik.com/free-photo/team-young-specialist-doctors-standing-corridor-hospital_1303-21199.jpg?t=st=1717709765~exp=1717713365~hmac=6461ff55e2ba9e8322678bb43e435d6f1dd89b7a0de94ee822c9b0a48fe103e8&w=1060'); */
+   /* url('https://img.freepik.com/free-photo/team-young-specialist-doctors-standing-corridor-hospital_1303-21199.jpg?t=st=1717709765~exp=1717713365~hmac=6461ff55e2ba9e8322678bb43e435d6f1dd89b7a0de94ee822c9b0a48fe103e8&w=1060'); */
   background-size: cover;
   background-position: center;
   width: 100%;

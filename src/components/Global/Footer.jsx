@@ -20,7 +20,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex justify-center items-center">
-          <h1 className="text-white font-bold text-8xl lg:text-8xl">Logo</h1>
+          <h1 className="text-white font-bold text-7xl lg:text-7xl uppercase">TRPEP</h1>
         </div>
         <div className="flex flex-col items-start gap-y-4">
           <h6 className="text-yellow-500 font-semibold text-base">
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full border border-gray-800 mt-6 lg:mt-20" />
+      <div className="w-full border border-gray-700 mt-6 lg:mt-20" />
       <div className="w-full pt-4">
         <p className="text-xs text-gray-400 flex items-center gap-1">
           <MdCopyright className="text-sm"/>TRT Nation. All rights reserved | Terms & Conditions | Privacy Policy

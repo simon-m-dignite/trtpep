@@ -23,7 +23,7 @@ const Hero = () => {
           <div>
             <button
               // to="/"
-              className="bg-white text-black flex items-center justify-center gap-1 px-8 py-4 uppercase text-sm font-medium rounded-full hover:bg-blue-950 transition-all duration-300 hover:text-white"
+              className="bg-blue-950 flex items-center justify-center gap-1 px-8 py-4 uppercase text-sm font-medium rounded-full hover:bg-blue-950 transition-all duration-300 text-white"
             >
               enroll now <RiArrowRightUpLine className="text-lg"/>
             </button>
