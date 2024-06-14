@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 const Layout = ({ pages }) => {
   return (
-    <div>
+    <div className="w-full overflow-x-hidden overflow-y-auto">
       <Navbar />
       {pages}
       <Footer />

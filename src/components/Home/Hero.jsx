@@ -6,14 +6,14 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 const Hero = () => {
   return (
     <main
-      className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-40 home-hero min-h-screen lg:h-[75vh]`}
+      className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-40 home-hero min-h-screen lg:h-[75vh] z-20`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 h-full gap-x-6 gap-y-8">
         <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center gap-6 lg:gap-10">
-          <h1 className="text-white text-4xl lg:text-8xl font-semibold">
+          <h1 className="text-white text-4xl lg:text-8xl font-semibold tracking-tighter">
             VIRTUAL MEDICAL VISITS
           </h1>
-          <h3 className="text-white font-medium text-lg md:text-base">
+          <h3 className="text-white font-medium text-lg md:text-base lg:text-2xl">
             Get affordable medications for LOW TESTOSTERONE and Anti-Aging
             remotely and delivered to your door!
           </h3>

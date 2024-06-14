@@ -9,6 +9,15 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const [scroll, setScroll] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDropdownOpen(false);
+  };
 
   const handleShowNav = () => {
     setShowNav(!showNav);
@@ -18,10 +27,8 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition > 200) {
-        // If scroll position is greater than 50px, change background to white
         setScroll(true);
       } else {
-        // Otherwise, keep background transparent
         setScroll(false);
       }
     };
@@ -35,7 +42,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`w-full fixed top-0 overflow-hidden  z-50`}>
+    <nav
+      className={`w-full fixed top-0 overflow-hidden z-40 bg-white shadow-lg`}
+    >
       <div
         className={`${styles.paddingHorizontal} w-full bg-blue-950 flex items-center justify-between py-2`}
       >
@@ -46,62 +55,69 @@ const Navbar = () => {
           </span>
         </p>
         <button className="py-2 uppercase px-4 rounded-full bg-white text-black font-semibold text-xs hidden lg:flex items-center gap-1">
-          refill now <RiArrowRightUpLine className="text-base"/>
+          refill now <RiArrowRightUpLine className="text-base" />
         </button>
       </div>
       <div
-        className={`w-full py-4 lg:py-6 ${
-          scroll ? "bg-white shadow-md" : "bg-white"
-        } flex items-center justify-between ${
-          styles.paddingHorizontal
-        } relative`}
+        className={`w-full py-4 lg:py-6 flex items-center justify-between ${styles.paddingHorizontal} relative`}
       >
-        <Link to="/" className={`text-2xl font-semibold uppercase ${scroll ? 'text-black' : 'text-black'}`}>
+        <Link to="/" className={`text-2xl font-semibold uppercase`}>
           <span className="text-blue-950">TRT</span>pep
         </Link>
         <ul className="hidden lg:flex items-center gap-10">
           <li>
             <Link
               to="/"
-              className={`text-[15px] font-semibold uppercase ${
-                scroll ? "text-black" : "text-black "
-              } hover:text-blue-900 transition-all duration-300`}
+              className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
             >
               About Us
             </Link>
           </li>
           <li>
-            <Link to="/" className={`text-[15px] font-semibold uppercase ${
-                scroll ? "text-black" : "text-black "
-              } hover:text-blue-900 transition-all duration-300`}>
+            <Link
+              to="/blogs"
+              className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+            >
               Blog
             </Link>
           </li>
           <li>
-            <Link to="/" className={`text-[15px] font-semibold uppercase ${
-                scroll ? "text-black" : "text-black "
-              } hover:text-blue-900 transition-all duration-300`}>
+            <Link
+              to="/faq"
+              className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+            >
               faq
             </Link>
           </li>
-          <li>
-            <Link to="/" className={`text-[15px] font-semibold uppercase ${
-                scroll ? "text-black" : "text-black "
-              } hover:text-blue-900 transition-all duration-300`}>
+          <li className="relative">
+            <button
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+            >
               choose a therapy
-            </Link>
+            </button>
+            {isDropdownOpen && (
+              <div className="rounded-[10px] bg-white p-4 w-[200px] shadow-xl absolute z-[100000] top-5">
+                <Link to="/">Link Option 1</Link>
+                <Link to="/">Link Option 2</Link>
+                <Link to="/">Link Option 3</Link>
+              </div>
+            )}
           </li>
           <li>
-            <Link to="/" className={`text-[15px] font-semibold uppercase ${
-                scroll ? "text-black" : "text-black "
-              } hover:text-blue-900 transition-all duration-300`}>
+            <Link
+              to="/lab-orders"
+              className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+            >
               labs
             </Link>
           </li>
           <li>
-            <Link to="/" className={`text-[15px] font-semibold uppercase ${
-                scroll ? "text-black" : "text-black "
-              } hover:text-blue-900 transition-all duration-300`}>
+            <Link
+              to="/"
+              className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+            >
               pay now
             </Link>
           </li>
@@ -126,7 +142,7 @@ const Navbar = () => {
         >
           <div className="w-[90%] h-full bg-white float-end relative pt-16">
             <button
-              className="w-8 h-8 bg-yellow-500 p-1.5 absolute top-4 right-4"
+              className="w-8 h-8 bg-blue-900 p-1.5 absolute top-4 right-4"
               onClick={handleShowNav}
             >
               <CgClose className="w-full h-full text-white" />

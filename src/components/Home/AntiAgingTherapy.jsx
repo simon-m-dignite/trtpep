@@ -7,10 +7,10 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 const AntiAgingTherapy = () => {
   return (
     <section
-      className={`${styles.paddingHorizontal} py-6 w-full lg:py-20 bg-gray-50`}
+      className={`py-6 w-full lg:py-20 bg-gray-50`}
     >
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="col-span-2 lg:col-span-1 lg:px-4 flex flex-col items-start justify-start gap-y-4">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
+        <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start gap-y-4 px-4 md:pl-8 lg:pl-28">
           <h1 className="text-[40px] font-semibold text-blue-950">
             ANTI AGING PEPTIDE THERAPY
           </h1>
@@ -65,11 +65,11 @@ const AntiAgingTherapy = () => {
           </div>
         </div>
 
-        <div className="col-span-2 lg:col-span-1">
+        <div className="col-span-2 lg:col-span-1 image-shadow2">
           <img
             src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1778&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
-            className="w-full h-full rounded-lg brightness-90"
+            className="w-full h-full brightness-90"
           />
         </div>
       </div>

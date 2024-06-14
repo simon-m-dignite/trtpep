@@ -6,17 +6,17 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 
 const ReplacementTherapy = () => {
   return (
-    <section className={`${styles.paddingHorizontal} py-12 lg:py-20 w-full`}>
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="col-span-2 lg:col-span-1">
+    <section className={`py-12 lg:py-20 w-full`}>
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
+        <div className="col-span-2 lg:col-span-1 image-shadow">
           <img
             src="https://img.freepik.com/free-photo/doctors-shaking-hands_23-2147822708.jpg?t=st=1717721565~exp=1717725165~hmac=860b95871a19b3114870d1239eceaae60c78c19b2db07e2f7008c77c62218899&w=1060"
             alt=""
-            className="w-full h-full rounded-lg brightness-90"
+            className="w-full h-full brightness-90"
           />
         </div>
-        <div className="col-span-2 lg:col-span-1 lg:px-4 flex flex-col items-start justify-start gap-y-4">
-          <h1 className="text-[40px] font-semibold text-blue-950">
+        <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start gap-y-4 px-4 md:pr-8 lg:pr-28">
+          <h1 className="text-[40px] font-semibold text-blue-950 lg:tracking-tight">
             TESTOSTERONE REPLACEMENT THERAPY
           </h1>
           <p className="text-gray-500 font-bold text-base">
@@ -61,9 +61,9 @@ const ReplacementTherapy = () => {
             </div>
           </div>
           <div className="mt-2">
-          <button className="bg-blue-950 flex items-center gap-1 text-white text-sm font-medium px-6 py-3 hover:bg-blue-950 transition-all duration-300 rounded-full uppercase">
+            <button className="bg-blue-950 flex items-center gap-1 text-white text-sm font-medium px-6 py-3 hover:bg-blue-950 transition-all duration-300 rounded-full uppercase">
               enroll now
-              <RiArrowRightUpLine className="text-lg"/>
+              <RiArrowRightUpLine className="text-lg" />
             </button>
           </div>
         </div>

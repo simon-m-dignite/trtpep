@@ -4,7 +4,6 @@ import WhyChooseTRT from "../../components/Home/WhyChooseTRT";
 import ReplacementTherapy from "../../components/Home/ReplacementTherapy";
 import AntiAgingTherapy from "../../components/Home/AntiAgingTherapy";
 import Testimonials from "../../components/Global/Testimonials";
-import Hero2 from "../../components/Home/Hero2";
 
 const HomePage = () => {
   return (
