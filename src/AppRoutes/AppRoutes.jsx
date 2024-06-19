@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import Layout from "../components/Global/Layout";
 import AboutUs from "../pages/aboutus/AboutUs";
+import NewPatient from "../pages/newPatient/NewPatient";
 // import FAQ from "../pages/faq/FAQ";
 // import Blogs from "../pages/blogs/Blogs";
 // import Blog from "../pages/blogs/Blog";
@@ -42,5 +43,10 @@ export const routes = [
     title: "Lab Orders Page",
     url: "/lab-orders",
     page: <Layout pages={<LabOrders />} />,
+  },
+  {
+    title: "Lab Orders Page",
+    url: "/new-patients",
+    page: <Layout pages={<NewPatient />} />,
   },
 ];

@@ -115,7 +115,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/"
+              to="/new-patients"
               className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
             >
               pay now
