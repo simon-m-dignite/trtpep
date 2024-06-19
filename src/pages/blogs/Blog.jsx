@@ -20,7 +20,7 @@ const Blog = () => {
               className="w-full lg:h-[70vh] brightness-75"
             />
           </div>
-          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-blue-900">
+          <h1 className="font-bold text-2xl md:text-3xl text-blue-900">
             Power and Presence: How TRT Can Enhance Leadership Qualities at Any
             Age
           </h1>
@@ -38,7 +38,7 @@ const Blog = () => {
             voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
             repellat delectus voluptatem ducimus cum labore.
           </p>
-          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-blue-900">
+          <h1 className="font-bold text-2xl md:text-3xl text-blue-900">
             Understanding the Impact of Testosterone on Leadership
           </h1>
           <p className="text-gray-500">
@@ -55,7 +55,7 @@ const Blog = () => {
             voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
             repellat delectus voluptatem ducimus cum labore.
           </p>
-          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-blue-900">
+          <h1 className="font-bold text-2xl md:text-3xl text-blue-900">
             Reclaiming Your Leadership with TRT
           </h1>
           <p className="text-gray-500">
@@ -72,7 +72,7 @@ const Blog = () => {
             voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
             repellat delectus voluptatem ducimus cum labore.
           </p>
-          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl text-blue-900">
+          <h1 className="font-bold text-2xl md:text-3xl text-blue-900">
             TRTPEP: A Partner in Your Leadership Journey
           </h1>
           <p className="text-gray-500">
@@ -92,7 +92,7 @@ const Blog = () => {
         </div>
 
         <div className="w-full col-span-3 lg:col-span-1 lg:p-5 flex flex-col gap-y-10 md:gap-y-0">
-          <div className="flex items-center justify-start gap-2">
+          {/* <div className="flex items-center justify-start gap-2">
             <input
               type="text"
               className="rounded-md outline-none border px-3 py-2.5 text-sm"
@@ -101,7 +101,7 @@ const Blog = () => {
             <button className="bg-blue-900 rounded-md p-3">
               <FiSearch className="text-white" />
             </button>
-          </div>
+          </div> */}
 
           <div className="flex flex-col items-start lg:mt-16 gap-2 lg:w-60">
             <h4 className="font-medium text-sm">Treatments</h4>

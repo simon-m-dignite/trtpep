@@ -8,9 +8,19 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 const BlogsList = () => {
   return (
     <div
-      className={`w-full ${styles.paddingHorizontal} grid grid-cols-3 lg:gap-x-10 my-20 lg:my-20`}
+      className={`w-full ${styles.paddingHorizontal} flex flex-col gap-0 lg:gap-10 my-20 lg:my-20`}
     >
-      <div className="col-span-3 order-2 lg:order-1 lg:col-span-2 flex flex-col items-start gap-y-10">
+      <div className="w-full flex items-center justify-end gap-2 border-b pb-6">
+        <input
+          type="text"
+          className="rounded-md outline-none border px-3 py-2.5 text-sm w-80"
+          placeholder="Search here"
+        />
+        <button className="bg-blue-900 rounded-md p-3">
+          <FiSearch className="text-white" />
+        </button>
+      </div>
+      <div className="w-full flex flex-col items-center">
         <BlogCard />
         <BlogCard />
         <BlogCard />
@@ -18,7 +28,7 @@ const BlogsList = () => {
         <BlogCard />
       </div>
 
-      <div className="col-span-3 order-1 lg:order-2 lg:col-span-1 lg:p-5  flex flex-col gap-y-10 md:gap-y-0">
+      {/* <div className="col-span-3 order-1 lg:order-2 lg:col-span-1 lg:p-5  flex flex-col gap-y-10 md:gap-y-0">
 
         <div className="flex items-center justify-start gap-2">
           <input
@@ -82,7 +92,7 @@ const BlogsList = () => {
           </Link>
         </div>
 
-      </div>
+      </div> */}
     </div>
   );
 };
