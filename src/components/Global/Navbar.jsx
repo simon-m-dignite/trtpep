@@ -67,7 +67,7 @@ const Navbar = () => {
         <ul className="hidden lg:flex items-center gap-10">
           <li>
             <Link
-              to="/"
+              to="/about"
               className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
             >
               About Us

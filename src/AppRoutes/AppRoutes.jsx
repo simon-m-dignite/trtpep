@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import Layout from "../components/Global/Layout";
+import AboutUs from "../pages/aboutus/AboutUs";
 // import FAQ from "../pages/faq/FAQ";
 // import Blogs from "../pages/blogs/Blogs";
 // import Blog from "../pages/blogs/Blog";
@@ -16,6 +17,11 @@ export const routes = [
     title: "Home Page",
     url: "/",
     page: <Layout pages={<HomePage />} />,
+  },
+  {
+    title: "About Page",
+    url: "/about",
+    page: <Layout pages={<AboutUs />} />,
   },
   {
     title: "Blogs Page",

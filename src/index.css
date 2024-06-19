@@ -63,14 +63,18 @@
   position: relative;
 }
 
-.image-shadow::after{
+.image-shadow::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
   pointer-events: none;
 }
 
@@ -78,34 +82,63 @@
   position: relative;
 }
 
-.image-shadow2::after{
+.image-shadow2::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: linear-gradient(to right, rgb(249 250 251), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(
+    to right,
+    rgb(249 250 251),
+    rgba(255, 255, 255, 0)
+  );
   pointer-events: none;
 }
 
-.faq-hero{
-  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.freepik.com/free-photo/people-taking-part-business-event_23-2149333727.jpg?t=st=1718319067~exp=1718322667~hmac=a3241920d42c88d9136df0359ec1e3529918227170ede41944a9f8ab3069f1bc&w=1060');
+.faq-hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://img.freepik.com/free-photo/people-taking-part-business-event_23-2149333727.jpg?t=st=1718319067~exp=1718322667~hmac=a3241920d42c88d9136df0359ec1e3529918227170ede41944a9f8ab3069f1bc&w=1060");
   background-size: cover;
   background-position: center;
   height: 50vh;
 }
 
-.blogs-hero{
-  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.freepik.com/free-photo/people-taking-part-business-event_23-2149333727.jpg?t=st=1718319067~exp=1718322667~hmac=a3241920d42c88d9136df0359ec1e3529918227170ede41944a9f8ab3069f1bc&w=1060');
+.blogs-hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://img.freepik.com/free-photo/people-taking-part-business-event_23-2149333727.jpg?t=st=1718319067~exp=1718322667~hmac=a3241920d42c88d9136df0359ec1e3529918227170ede41944a9f8ab3069f1bc&w=1060");
   background-size: cover;
   background-position: center;
   height: 90vh;
 }
 
-.lab-order-hero{
-  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img.freepik.com/free-photo/lab-technician-ppe-suit-sitting-table-medical-research-laboratory-holding-test-tube-talking-video-call-with-senior-doctor-giving-online-advices-virtual-meeting_482257-531.jpg?t=st=1718403848~exp=1718407448~hmac=2e2d7736ac8fd8cab93044794f0ef402913be9030be22769a20f61fc2907ee66&w=1380');
+.lab-order-hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://img.freepik.com/free-photo/lab-technician-ppe-suit-sitting-table-medical-research-laboratory-holding-test-tube-talking-video-call-with-senior-doctor-giving-online-advices-virtual-meeting_482257-531.jpg?t=st=1718403848~exp=1718407448~hmac=2e2d7736ac8fd8cab93044794f0ef402913be9030be22769a20f61fc2907ee66&w=1380");
   background-size: cover;
   background-position: center;
   height: 100vh;
+}
+
+.about-us-hero {
+  background-image: url("/about-us.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 85vh;
 }
