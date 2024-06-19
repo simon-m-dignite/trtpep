@@ -8,7 +8,7 @@ const PaymentInfoForm = ({onSubmit}) => {
         <p className="font-normal mt-2 text-base">$250</p>
       </div>
 
-      <div className="flex flex-col items-start gap-2 mt-4">
+      <div className="flex flex-col items-start gap-1 mt-4">
         <p className="text-sm font-semibold text-gray-500 mb-2">
           Payment Info <span className="text-red-500">*</span>
         </p>
@@ -21,7 +21,7 @@ const PaymentInfoForm = ({onSubmit}) => {
         />
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
-        <div>
+        <div className="flex flex-col items-start gap-1">
           <label
             htmlFor="card-expiration-date"
             className="text-gray-500 text-sm"
@@ -50,7 +50,7 @@ const PaymentInfoForm = ({onSubmit}) => {
             <option value="Dec">12</option>
           </select>
         </div>
-        <div>
+        <div className="flex flex-col items-start gap-1">
           <label
             htmlFor="card-expiration-date"
             className="text-gray-500 text-sm"
@@ -74,7 +74,7 @@ const PaymentInfoForm = ({onSubmit}) => {
             <option value="2030">2030</option>
           </select>
         </div>
-        <div>
+        <div className="flex flex-col items-start gap-1">
           <label
             htmlFor="card-expiration-date"
             className="text-gray-500 text-sm"
@@ -87,7 +87,7 @@ const PaymentInfoForm = ({onSubmit}) => {
           />
         </div>
       </div>
-      <div className="flex flex-col items-start gap-2 mt-3">
+      <div className="flex flex-col items-start gap-1 mt-3">
         <label htmlFor="card-expiration-date" className="text-gray-500 text-sm">
           Cardholder Name
         </label>
