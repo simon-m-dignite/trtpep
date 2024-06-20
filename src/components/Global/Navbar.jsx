@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { styles } from "../../styles/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IoCallSharp } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
@@ -10,6 +10,13 @@ const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
   const [scroll, setScroll] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+  const [showContactPage, setShowContactPage] = useState(false);
+  const [showPayNowLinks, setShowPayNowLinks] = useState(false);
+
+  const handleNavigateToAboutPage = () => {
+    navigate("/about");
+  };
 
   const handleMouseEnter = () => {
     setIsDropdownOpen(true);
@@ -42,9 +49,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`w-full fixed top-0 overflow-hidden z-40 bg-white shadow-lg`}
-    >
+    <nav className={`w-full fixed top-0 z-40 bg-white shadow-lg`}>
       <div
         className={`${styles.paddingHorizontal} w-full bg-blue-950 flex items-center justify-between py-2`}
       >
@@ -65,13 +70,29 @@ const Navbar = () => {
           <span className="text-blue-950">TRT</span>pep
         </Link>
         <ul className="hidden lg:flex items-center gap-10">
-          <li>
-            <Link
-              to="/about"
+          <li className="relative">
+            <button
+              onClick={handleNavigateToAboutPage}
+              onMouseEnter={() => setShowContactPage(true)}
+              onMouseLeave={() => setShowContactPage(false)}
               className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
             >
               About Us
-            </Link>
+            </button>
+            {showContactPage && (
+              <div
+                className="absolute top-6 z-40 w-36 text-center border rounded-md shadow-lg px-4 py-2 text-sm bg-white"
+                onMouseEnter={() => setShowContactPage(true)}
+                onMouseLeave={() => setShowContactPage(false)}
+              >
+                <Link
+                  to="/contact-testosterone-replacement"
+                  className="text-[14px] font-semibold uppercase hover:text-blue-900 transition-all duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            )}
           </li>
           <li>
             <Link
@@ -98,10 +119,29 @@ const Navbar = () => {
               choose a therapy
             </button>
             {isDropdownOpen && (
-              <div className="rounded-[10px] bg-white p-4 w-[200px] shadow-xl absolute z-[100000] top-5">
-                <Link to="/">Link Option 1</Link>
-                <Link to="/">Link Option 2</Link>
-                <Link to="/">Link Option 3</Link>
+              <div
+                className="rounded-md bg-white border px-6 py-6 w-60 shadow-xl absolute z-40 top-7 flex flex-col items-start gap-4"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Link
+                  to="/"
+                  className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+                >
+                  Testosterone Therapy
+                </Link>
+                <Link
+                  to="/"
+                  className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+                >
+                  HCG Therapy
+                </Link>
+                <Link
+                  to="/"
+                  className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+                >
+                  HGH Peptides
+                </Link>
               </div>
             )}
           </li>
@@ -113,13 +153,34 @@ const Navbar = () => {
               labs
             </Link>
           </li>
-          <li>
-            <Link
-              to="/new-patients"
+          <li className="relative">
+            <button
+              onMouseEnter={() => setShowPayNowLinks(true)}
+              onMouseLeave={() => setShowPayNowLinks(false)}
               className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
             >
               pay now
-            </Link>
+            </button>
+            {showPayNowLinks && (
+              <div
+                className="rounded-md bg-white border px-6 py-6 w-60 shadow-xl absolute z-40 top-7 flex flex-col items-start gap-4"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Link
+                  to="/"
+                  className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+                >
+                  New Patient
+                </Link>
+                <Link
+                  to="/"
+                  className={`text-[15px] font-semibold uppercase hover:text-blue-900 transition-all duration-300`}
+                >
+                  Old Patient
+                </Link>
+              </div>
+            )}
           </li>
         </ul>
 
