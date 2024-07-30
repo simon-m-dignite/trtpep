@@ -133,7 +133,6 @@ const LabOrdersForm = () => {
 
         console.log("new patient >> ", newPatient);
         console.log("old patient >> ", oldPatient);
-        console.log("data >> ", resp);
       } catch (error) {
         console.log("lab order form error >> ", error);
       }
