@@ -1,104 +1,111 @@
-import React from "react";
+// import React from "react";
+// import {
+//   CardElement,
+//   Elements,
+//   useElements,
+//   useStripe,
+// } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
+// import {
+//   CardNumberElement,
+//   CardExpiryElement,
+//   CardCvcElement,
+//   ElementsConsumer,
+// } from "@stripe/react-stripe-js";
 
-const PaymentInfoForm = ({onSubmit}) => {
+// const PaymentInfoForm = ({ onSubmit }) => {
+//   const stripe = useStripe();
+
+//   const elements = useElements();
+//   return (
+//     <div>
+//       <div className="mb-4">
+//         <p className="font-semibold text-base text-blue-900">Total</p>
+//         <p className="font-normal mt-2 text-base">$250</p>
+//       </div>
+
+//       <div className="flex flex-col items-start gap-1 mt-4">
+//         <p className="text-sm font-semibold text-gray-500 mb-2">
+//           Payment Info <span className="text-red-500">*</span>
+//         </p>
+
+//         <CheckoutComponent />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default PaymentInfoForm;
+
+// const CheckoutComponent = () => {
+//   return (
+//     <div className="w-full">
+//       <CardElement />
+//     </div>
+//   );
+// };
+
+// src/components/PaymentInfoForm.js
+
+import React, { useState } from "react";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+
+const PaymentInfoForm = ({ onSubmit }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    if (!stripe || !elements) {
+      // Stripe.js has not yet loaded.
+      setLoading(false);
+      return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+
+    const { error, token } = await stripe.createToken(cardElement);
+
+    if (error) {
+      console.log("[error]", error);
+      setLoading(false);
+      return;
+    }
+
+    // Pass the token to the parent component for further processing
+    const submitted = onSubmit(token);
+    if (submitted) {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
+      <h2 className="text-lg font-semibold mb-4">Payment Information</h2>
+      <div>
         <div className="mb-4">
-        <p className="font-semibold text-base text-blue-900">Total</p>
-        <p className="font-normal mt-2 text-base">$250</p>
-      </div>
-
-      <div className="flex flex-col items-start gap-1 mt-4">
-        <p className="text-sm font-semibold text-gray-500 mb-2">
-          Payment Info <span className="text-red-500">*</span>
-        </p>
-        <label htmlFor="card-number" className="text-gray-500 text-sm">
-          Card Number
-        </label>
-        <input
-          type="text"
-          className="w-full text-sm border py-2 rounded px-2 outline-none"
-        />
-      </div>
-      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
-        <div className="flex flex-col items-start gap-1">
-          <label
-            htmlFor="card-expiration-date"
-            className="text-gray-500 text-sm"
+          <p className="font-semibold text-base text-blue-900">Total</p>
+          <p className="font-normal mt-2 text-base">$250</p>{" "}
+        </div>{" "}
+        <div className="flex flex-col items-start gap-1 mt-4">
+          {" "}
+          <p className="text-sm font-semibold text-gray-500 mb-2">
+            Payment Info <span className="text-red-500">*</span>{" "}
+          </p>
+          <CardElement className="mb-4 w-full" />
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!stripe}
+            className="bg-color  text-white rounded-md text-sm px-4 py-2"
           >
-            Expiration Date
-          </label>
-          <select
-            name="card-expiration-date"
-            id="card-expiration-date"
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          >
-            <option value="month" selected>
-              Month
-            </option>
-            <option value="Jan">1</option>
-            <option value="Feb">2</option>
-            <option value="Mar">3</option>
-            <option value="Apr">4</option>
-            <option value="May">5</option>
-            <option value="Jun">6</option>
-            <option value="July">7</option>
-            <option value="Aug">8</option>
-            <option value="Sep">9</option>
-            <option value="Oct">10</option>
-            <option value="Nov">11</option>
-            <option value="Dec">12</option>
-          </select>
+            {loading ? "Loading..." : "Pay"}
+          </button>
         </div>
-        <div className="flex flex-col items-start gap-1">
-          <label
-            htmlFor="card-expiration-date"
-            className="text-gray-500 text-sm"
-          >
-            Year
-          </label>
-          <select
-            name="card-expiration-year"
-            id="card-expiration-year"
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          >
-            <option value="year" selected>
-              Year
-            </option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-            <option value="2027">2027</option>
-            <option value="2028">2028</option>
-            <option value="2029">2029</option>
-            <option value="2030">2030</option>
-          </select>
-        </div>
-        <div className="flex flex-col items-start gap-1">
-          <label
-            htmlFor="card-expiration-date"
-            className="text-gray-500 text-sm"
-          >
-            Security Card
-          </label>
-          <input
-            type="text"
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          />
-        </div>
-      </div>
-      <div className="flex flex-col items-start gap-1 mt-3">
-        <label htmlFor="card-expiration-date" className="text-gray-500 text-sm">
-          Cardholder Name
-        </label>
-        <input
-          type="text"
-          className="w-full text-sm border py-2 rounded px-2 outline-none"
-        />
-        <p className="text-xs text-gray-600">
-          Please make sure to type your name as listed on your credit card in
-          the Cardholder Name field.
-        </p>
       </div>
     </div>
   );

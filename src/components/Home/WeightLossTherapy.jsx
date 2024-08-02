@@ -17,7 +17,7 @@ const WeightLossTherapy = () => {
           />
         </div>
         <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start gap-y-4 px-4 md:pr-8 lg:pr-28">
-          <h1 className="text-[40px] font-semibold text-blue-950 lg:tracking-tight">
+          <h1 className="text-[40px] font-semibold text-black lg:tracking-tight">
           WEIGHT LOSS THERAPY
           </h1>
           <p className="text-gray-500 font-bold text-base">
@@ -26,37 +26,37 @@ const WeightLossTherapy = () => {
           <div className="w-full pt-2">
             <div className="flex items-center justify-start gap-2 pb-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">EFFECTIVE WEIGHT MANAGEMENT</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">ENHANCED METABOLIC FUNCTION</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">REDUCED APPETITE</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">INCREASED ENERGY LEVELS</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">IMPROVED OVERALL HEALTH</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">BOOSTED CONFIDENCE</p>
             </div>

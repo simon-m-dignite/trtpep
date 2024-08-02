@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const ReplacementTherapy = () => {
   return (
-    <section className={`py-12 lg:py-20 w-full`}>
+    <section className={`py-12 xl:pt-20 w-full`}>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
         <div className="col-span-2 lg:col-span-1 image-shadow">
           <img
@@ -17,7 +17,7 @@ const ReplacementTherapy = () => {
           />
         </div>
         <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start gap-y-4 px-4 md:pr-8 lg:pr-28">
-          <h1 className="text-[40px] font-semibold text-blue-950 lg:tracking-tight">
+          <h1 className="text-[40px] font-semibold text-black lg:tracking-tight">
             TESTOSTERONE REPLACEMENT THERAPY
           </h1>
           <p className="text-gray-500 font-bold text-base">
@@ -26,37 +26,37 @@ const ReplacementTherapy = () => {
           <div className="w-full pt-2">
             <div className="flex items-center justify-start gap-2 pb-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">BOOST BRAIN FUNCTION</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">IMPROVE CARDIOVASCULAR HEALTH</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">ENHANCE BONE DENSITY</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">BUILD LEAN MUSCLE</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">PROMOTE FAT LOSS</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
-                <IoMdCheckmark className="text-blue-900 text-lg" />
+                <IoMdCheckmark className="text-color text-lg" />
               </div>
               <p className="text-gray-500">ELEVATE YOUR SENSE OF WELL-BEING</p>
             </div>

@@ -79,8 +79,8 @@ const Navbar = () => {
       <div
         className={`w-full py-4 lg:py-6 flex items-center justify-between ${styles.paddingHorizontal} relative`}
       >
-        <Link to="/" className={`text-2xl font-semibold uppercase`}>
-          <span className="text-blue-950">TRT</span>pep
+        <Link to="/" className={`text-2xl font-semibold uppercase text-[#c00000]`}>
+          <span className="">TRT</span>pep
         </Link>
         <ul className="hidden lg:flex items-center gap-10">
           <li className="relative">
@@ -262,11 +262,11 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center justify-end lg:hidden gap-3">
-          <button className="bg-blue-950 text-white uppercase text-sm font-semibold rounded-full px-3 py-2">
+          <button className="bg-color text-white uppercase text-sm font-semibold rounded-full px-3 py-2">
             refill now
           </button>
           <button
-            className="w-9 h-9 bg-blue-950 rounded-md p-1.5"
+            className="w-9 h-9 bg-color rounded-md p-1.5"
             onClick={handleShowNav}
           >
             <HiMenu className="w-full h-full text-white" />
@@ -278,9 +278,9 @@ const Navbar = () => {
             showNav ? "translate-x-0" : "translate-x-full"
           } transition-all duration-500`}
         >
-          <div className="w-[90%] md:w-[50%] h-full bg-white float-end relative pt-16">
+          <div className="w-[90%] md:w-[50%] h-full bg-white float-end relative pt-16 shadow-2xl">
             <button
-              className="w-8 h-8 bg-blue-900 p-1.5 absolute top-4 right-4"
+              className="w-8 h-8 bg-color p-1.5 absolute top-4 right-4"
               onClick={handleShowNav}
             >
               <CgClose className="w-full h-full text-white" />

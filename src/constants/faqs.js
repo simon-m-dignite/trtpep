@@ -10,10 +10,6 @@ export const FAQS = [
       "All our medications are prescribed by licensed providers and dispensed from FDA-registered pharmacies in the USA. Medications are only prescribed after a thorough medical screening and provider consultation.",
   },
   {
-    question: "What is included in the TRT plans that you offer?",
-    answer: "",
-  },
-  {
     question: "Can I receive TRT without blood work?",
     answer:
       "No, a blood test is required to determine if you're eligible for testosterone replacement therapy.",

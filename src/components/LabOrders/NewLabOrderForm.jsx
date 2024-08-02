@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import {
   Elements,
   CardElement,
   useStripe,
   useElements,
+  PaymentElement,
 } from "@stripe/react-stripe-js";
+import { useFormContext } from "../../context/FormContext";
+import CheckoutForm from "./CheckoutForm";
 
-const LabOrdersForm = () => {
-  const [selectedOption, setSelectedOption] = useState("");
+const NewLabOrderForm = () => {
+    const [selectedOption, setSelectedOption] = useState("");
   const [newPatient, setNewPatient] = useState("");
   const [oldPatient, setOldPatient] = useState("");
   const [errors, setErrors] = useState({});
@@ -33,7 +36,7 @@ const LabOrdersForm = () => {
     cardExpirationYear: "",
     cvc: "",
     cardholderName: "",
-    amount: "124.95",
+    amount: "1240",
   });
 
   const handleChange = (e) => {
@@ -115,51 +118,73 @@ const LabOrdersForm = () => {
     return valid;
   };
 
+  const { setClientSecret, clientSecret } = useFormContext();
+
+  const getClientSecret = () => {
+    axios
+      .post("http://localhost:8000/api/get-client-secret", {
+        amount: 5000,
+      })
+      .then((response) => {
+        setClientSecret(response?.data?.clientSecret);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // if (validateForm()) {
-      if (!stripe || !elements) {
-        return;
-      }
-      const cardElement = elements.getElement(CardElement);
+    //   console.log("Here")
+    // getClientSecret();
+    const { error, paymentIntent, token } = await stripe.confirmPayment({
+      elements
+    });
 
-      const { error, token } = await stripe.createToken(cardElement);
+    console.log(token)
 
-      if (token?.id) {
+    if (error) {
+      // Show error to your customer (e.g., insufficient funds)
+      setPaymentStatus(`Payment failed: ${error.message}`);
+      console.log(error);
+    } else if (paymentIntent) {
+      // Payment successful
+      if (paymentIntent.status === "succeeded") {
         try {
           axios
             .post("http://localhost:8000/api/create-payment-intent", {
               data: data,
-              id: token?.id
             })
             .then((response) => {
               console.log(response);
+              setPaymentStatus("Payment successful!");
             })
             .catch((error) => {
               console.log(error);
             });
-
-          console.log("new patient >> ", newPatient);
-          console.log("old patient >> ", oldPatient);
-          console.log("data >> ", resp);
         } catch (error) {
           console.log("lab order form error >> ", error);
         }
       } else {
-        setPaymentStatus("Payment failed. Please try again.");
-        console.log("Stripe error >> ", error);
+        setPaymentStatus(
+          "Payment processing, please check your account later."
+        );
       }
+    }
+    // }
+    //  else {
+    //   setPaymentStatus("Payment failed. Please try again.");
+    //   console.log("Stripe error >> ", error);
     // }
   };
-
   return (
     <form
       onSubmit={handleSubmit}
       className="px-4 md:px-10 lg:px-48 w-full py-16 flex flex-col gap-4"
     >
-      
-
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="flex items-center justify-start gap-2">
           <input
@@ -422,7 +447,14 @@ const LabOrdersForm = () => {
       <p className="text-sm font-semibold text-gray-500 mb-2">
         Payment Info <span className="text-red-500">*</span>
       </p>
-      <CardElement />
+      {clientSecret ? (
+        <Elements
+          stripe={stripePromise}
+          options={{ clientSecret: clientSecret }}
+        >
+          <CheckoutForm />
+        </Elements>
+      ) : null}
       {/* <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="flex flex-col items-start gap-2">
           <label htmlFor="cardholderName" className="text-gray-500 text-sm">
@@ -507,7 +539,7 @@ const LabOrdersForm = () => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default LabOrdersForm;
+export default NewLabOrderForm
