@@ -85,10 +85,10 @@ const FAQs = () => {
                 Syringes and Shipping.
               </p>
               <p className="text-gray-600 text-sm">
-                - $250.00 - Without HCG (2.5 Month Supply @ $99/month)
+                - $250.00 - Without HCG (2.5 Month Supply @ $99/monthly)
               </p>
               <p className="text-gray-600 text-sm">
-                - $375.00 - With HCG (2.5 Month Supply @ $149/month)
+                - $497.50 - HCG (2.5 Month Supply @ $199 Monthly)
               </p>
               <p className="text-gray-600 text-sm">- N/A</p>
 
@@ -99,7 +99,7 @@ const FAQs = () => {
                 Includes Initial Consult, Tesamorelin, Syringes and Shipping
               </p>
               <p className="text-gray-600 text-sm">
-                - $699.00 - Peptides (3 Month Supply @ $233/month)
+                - $699.00 - Peptides (3 Month Supply @ $233/monthly)
               </p>
               <p className="text-gray-600 text-sm">- N/A</p>
 
@@ -110,7 +110,7 @@ const FAQs = () => {
                 Includes Initial Consult, HCG, Syringes and Shipping.
               </p>
               <p className="text-gray-600 text-sm">
-                - $199.00 - HCG (2.5 Month Supply @ $199)
+                - $497.50 - HCG (2.5 Month Supply @ $199/Monthly)
               </p>
               <p className="text-gray-600 text-sm">- N/A</p>
 
@@ -118,7 +118,7 @@ const FAQs = () => {
                 Weight Loss Therapy
               </p>
               <p className="text-gray-600 text-sm">
-                - $460.00 - Semaglutide (2.5 Month Supply @ $460)
+                - $947.50- Semaglutide ( 2.5 Month Supply @ $379/Monthly)
               </p>
               <p className="text-gray-600 text-sm">
                 - $1,490.00 - Tirzepatide (2.5 Month Supply @ $596)

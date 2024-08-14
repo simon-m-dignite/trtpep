@@ -36,7 +36,7 @@ const Hero = () => {
               $
             </span>
             <h2 className="text-[120px] md:text-[200px] font-extrabold text-white mx-4 py-0">
-              99
+              89
             </h2>
             <span className="absolute md:bottom-20 text-white font-semibold text-lg right-24 bottom-12 md:right-0">
               .99/Month
@@ -54,7 +54,8 @@ const Hero = () => {
               Only $149.99 with HCG. NO HIDDEN FEES.
             </p>
             <p className="text-sm text-white">
-              *Minimum purchase: 2.5-month supply.
+              *Minimum a 2.5 month order then after 1st year price will increase
+              to $109.99 a Month.
             </p>
           </div>
         </div>

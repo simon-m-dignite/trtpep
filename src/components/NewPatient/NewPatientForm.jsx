@@ -18,8 +18,8 @@ const stripePromise = loadStripe(
 
 function NewPatientForm() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [totalAmount, setTotalAmount] = useState(0);
   const [formData, setFormData] = useState({
-    provider: "",
     therapyDetails: {
       testosterone: "",
       peptide: "",
@@ -38,39 +38,36 @@ function NewPatientForm() {
       dob: "",
     },
     shippingInfo: {
-      streetAddress: "",
-      addressLine2: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      isBillingSameAsShipping: false,
+      shippingStreetAddress: "",
+      shippingAddressLine: "",
+      shippingCity: "",
+      shippingState: "",
+      shippingZipCode: "",
     },
     billingInfo: {
-      streetAddress: "",
-      addressLine2: "",
-      city: "",
-      state: "",
-      zipCode: "",
+      billingStreetAddress: "",
+      billingAddressLine: "",
+      billingCity: "",
+      billingState: "",
+      billingZipCode: "",
     },
-    paymentInfo: {},
+    isBillingSameAsShipping: false,
   });
 
   const calculateTotalPrice = (formData) => {
-    // Initialize total price
     let totalPrice = 0;
 
     // Sum prices from therapyDetails
     Object.values(formData.therapyDetails).forEach((item) => {
-      totalPrice += item?.price || 0; // Ensure price is a number
+      totalPrice += item?.price || 0;
     });
 
     // Sum prices from labWorkDetails
     Object.values(formData.labWorkDetails).forEach((item) => {
-      totalPrice += item?.price || 0; // Ensure price is a number
+      totalPrice += item?.price || 0;
     });
 
-    // Return the total price
-    return totalPrice;
+    return Math.ceil(totalPrice);
   };
 
   const [paymentStatus, setPaymentStatus] = useState("");
@@ -133,14 +130,33 @@ function NewPatientForm() {
 
   const handleSubmit = async (token) => {
     try {
-      const response = await axios.post(
-        "http://localhost:8000/api/create-payment-intent",
-        {
-          data: formData,
-          id: token.id,
-        }
-      );
-      console.log("Payment successful", response);
+      const requestData = {
+        formData,
+        id: token.id,
+        amount: calculateTotalPrice(formData),
+      };
+      // const response = await axios.post(
+      //   "http://localhost:8000/api/new-patient",
+      //   {
+      //     data: formData,
+      //     id: token.id,
+      //     amount: calculateTotalPrice(formData),
+      //   }
+      // );
+
+      // Log data to verify its structure
+      console.log("Data being sent:", JSON.stringify(requestData, null, 2));
+
+      const response = await fetch("http://localhost:8000/api/new-patient", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+      const resp = await response.json();
+      console.log("Payment successful", resp);
+      alert(resp.message);
       return true;
     } catch (error) {
       setPaymentStatus("Payment failed. Please try again.");
@@ -217,6 +233,7 @@ function NewPatientForm() {
   useEffect(() => {
     console.log("formData >> ", formData);
     const totalPrice = calculateTotalPrice(formData);
+    setTotalAmount(calculateTotalPrice(formData));
     console.log("Total Price:", totalPrice); // Output: Total Price: 1784
   }, [formData]);
 
@@ -262,7 +279,7 @@ function NewPatientForm() {
         {currentStep !== steps?.length && (
           <div className="mt-4">
             <p className="font-semibold text-base text-[#c00000]">Total</p>
-            <p className="font-normal mt-2 text-base">$250</p>
+            <p className="font-normal mt-2 text-base">${totalAmount}</p>
           </div>
         )}
 

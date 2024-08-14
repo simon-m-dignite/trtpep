@@ -41,9 +41,9 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="testosterone"
-          value={"N/A"}
-          checked={formData.therapyDetails.testosterone?.price === "N/A"}
-          onChange={() => handleRadioChange("testosterone", "N/A", "N/A")}
+          value={"0"}
+          checked={formData.therapyDetails.testosterone?.price === "0"}
+          onChange={() => handleRadioChange("testosterone", "0", "0")}
           className="w-5 h-5"
         />
         <label htmlFor="" className="text-sm mt-1">
@@ -89,9 +89,9 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="peptide"
-          value={"N/A"}
-          checked={formData.therapyDetails.peptide?.price === "N/A"}
-          onChange={() => handleRadioChange("peptide", "N/A", "N/A")}
+          value={"0"}
+          checked={formData.therapyDetails.peptide?.price === "0"}
+          onChange={() => handleRadioChange("peptide", "0", "0")}
           id=""
           className="w-5 h-5"
         />
@@ -112,23 +112,23 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
             <input
               type="radio"
               name="hcg"
-              value={"199"}
-              checked={formData.therapyDetails.hcg?.price === 199}
-              onChange={() => handleRadioChange("hcg", "HCG", 199)}
+              value={"497.50"}
+              checked={formData.therapyDetails.hcg?.price === 497.5}
+              onChange={() => handleRadioChange("hcg", "HCG", 497.5)}
               id=""
               className="w-5 h-5"
             />
             <label htmlFor="" className="text-sm mt-1">
-              $199.00 - HCG (2.5 Month Supply @ $199)
+              $497.50 - HCG (2.5 Month Supply @ $199 Monthly)
             </label>
           </div>
           <div className="flex items-center gap-2">
             <input
               type="radio"
               name="hcg"
-              value={"N/A"}
-              checked={formData.therapyDetails.hcg?.price === "N/A"}
-              onChange={() => handleRadioChange("hcg", "N/A", "N/A")}
+              value={"0"}
+              checked={formData.therapyDetails.hcg?.price === "0"}
+              onChange={() => handleRadioChange("hcg", "0", "0")}
               id=""
               className="w-5 h-5"
             />
@@ -149,13 +149,13 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
           type="radio"
           name="weightLoss"
           value={"460"}
-          checked={formData.therapyDetails.weightLoss?.price === 460}
-          onChange={() => handleRadioChange("weightLoss", "Semaglutide", 460)}
+          checked={formData.therapyDetails.weightLoss?.price === 947.5}
+          onChange={() => handleRadioChange("weightLoss", "Semaglutide", 947.5)}
           id=""
           className="w-5 h-5"
         />
         <label htmlFor="" className="text-sm mt-1">
-          $460.00- Semaglutide ( 2.5 Month Supply @ $460)
+          $947.50- Semaglutide ( 2.5 Month Supply @ $379/Monthly)
         </label>
       </div>
       <div className="flex items-center gap-2">

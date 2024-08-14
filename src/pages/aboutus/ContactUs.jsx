@@ -46,13 +46,13 @@ const ContactUs = () => {
         <div className="">
           <div className="w-full bg-color h-80 p-4">
             <div className="w-full h-60 bg-white">
-              <Map/>
+              <Map />
             </div>
             <div className="flex flex-col gap-2 pt-2">
               <div className="flex items-center gap-2">
                 <FaBuilding className="text-white text-[15px]" />
                 <p className="text-white text-sm">
-                  105 Galileo Drive Williamsville, NY. 14221
+                  8265 Sheridan Dr. Buffalo New York 14221
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -71,7 +71,8 @@ const ContactUs = () => {
       >
         <div className="w-full lg:w-[40%] border mb-2" />
         <p className="font-medium">
-          Anything additional please feel free to give us a call @ (888) 942-0006
+          Anything additional please feel free to give us a call @ (888)
+          942-0006
         </p>
         <p className="font-medium">
           Our normal business hours are 10am to 5pm Est. Monday to Friday.

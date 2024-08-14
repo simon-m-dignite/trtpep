@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import {
   Elements,
@@ -6,6 +6,9 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import ReCAPTCHA from "react-google-recaptcha";
+import { FaCheck } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
 
 const LabOrdersForm = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -16,6 +19,8 @@ const LabOrdersForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [paymentStatus, setPaymentStatus] = useState("");
+
+  const [paymentSuccessfull, setPaymentSuccessfull] = useState(false);
 
   const [data, setData] = useState({
     firstName: "",
@@ -28,39 +33,67 @@ const LabOrdersForm = () => {
     billingAddressLine2: "",
     city: "",
     zipCode: "",
-    cardNumber: "",
-    cardExpirationDate: "",
-    cardExpirationYear: "",
-    cvc: "",
-    cardholderName: "",
-    amount: "124.95",
+    amount: "125",
+    state: "",
   });
+  const [isNewPatient, setIsNewPatient] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
+  const captchaRef = useRef(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setData((values) => ({ ...values, [name]: value }));
+  const checkHandler = () => {
+    setIsChecked(!isChecked);
   };
 
-  const [patientType, setPatientType] = useState("");
+  const handleRadioInputChange = (e) => {
+    setIsNewPatient(e.target.value);
+  };
 
-  const handleRadioChange = (event) => {
-    setPatientType(event.target.value);
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    date_of_birth,
+    shippingState,
+    billingAddress,
+    billingAddressLine2,
+    city,
+    zipCode,
+    amount,
+  } = data;
+
+  // const handleChange = (e) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
+  //   setData((values) => ({ ...values, [name]: value }));
+  // };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const validateForm = () => {
     let valid = true;
     let errors = {};
 
-    if (!data.firstName.trim()) {
+    if (!isNewPatient) {
+      errors.isNewPatient = "Please choose an option";
+    }
+
+    if (!data.firstName) {
       errors.firstName = "First name is required";
       valid = false;
     }
-    if (!data.lastName.trim()) {
+    if (!data.lastName) {
       errors.lastName = "Last name is required";
       valid = false;
     }
-    if (!data.email.trim()) {
+    if (!data.email) {
       errors.email = "Email is required";
       valid = false;
     } else {
@@ -70,44 +103,40 @@ const LabOrdersForm = () => {
         valid = false;
       }
     }
-    if (!data.phone.trim()) {
+    if (!data.phone) {
       errors.phone = "Phone number is required";
       valid = false;
     }
-    if (!data.date_of_birth.trim()) {
+    if (!data.date_of_birth) {
       errors.date_of_birth = "Date of birth is required";
       valid = false;
     }
-    if (!data.shippingState.trim()) {
+    if (!data.shippingState) {
       errors.shippingState = "Shipping state is required";
       valid = false;
     }
-    if (!data.billingAddress.trim()) {
+
+    if (!data.state) {
+      errors.state = "State is required";
+      valid = false;
+    }
+
+    if (!data.billingAddress) {
       errors.billingAddress = "Billing address is required";
       valid = false;
     }
-    if (!data.city.trim()) {
+
+    if (!data.billingAddressLine2) {
+      errors.billingAddressLine2 = "Billing address line is required";
+      valid = false;
+    }
+
+    if (!data.city) {
       errors.city = "City is required";
       valid = false;
     }
-    if (!data.zipCode.trim()) {
+    if (!data.zipCode) {
       errors.zipCode = "Zip code is required";
-      valid = false;
-    }
-    if (!data.cardNumber.trim()) {
-      errors.cardNumber = "Card number is required";
-      valid = false;
-    }
-    if (!data.cardExpirationDate.trim()) {
-      errors.cardExpirationDate = "Card expiration date is required";
-      valid = false;
-    }
-    if (!data.cvc.trim()) {
-      errors.cvc = "CVC is required";
-      valid = false;
-    }
-    if (!data.cardholderName.trim()) {
-      errors.cardholderName = "Cardholder name is required";
       valid = false;
     }
 
@@ -115,13 +144,24 @@ const LabOrdersForm = () => {
     return valid;
   };
 
+  const [captcha, setCaptcha] = useState("");
+
+  function onChange(value) {
+    setCaptcha(value);
+    console.log("captcha", value);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (validateForm()) {
+    // captchaRef.current.reset();
+    // const inputVal = await e.target[0].value;
+
+    if (validateForm()) {
       if (!stripe || !elements) {
         return;
       }
+      setLoading(true);
       const cardElement = elements.getElement(CardElement);
 
       const { error, token } = await stripe.createToken(cardElement);
@@ -131,26 +171,46 @@ const LabOrdersForm = () => {
           axios
             .post("http://localhost:8000/api/create-payment-intent", {
               data: data,
-              id: token?.id
+              id: token?.id,
+              amount: data.amount,
+              firstName,
+              lastName,
+              email,
+              phone,
+              date_of_birth,
+              shippingState,
+              billingAddress,
+              billingAddressLine2,
+              city,
+              zipCode,
+              isNewPatient,
+              // inputVal,
+              captcha,
             })
             .then((response) => {
-              console.log(response);
+              console.log(response.data);
+              setLoading(false);
+              setPaymentStatus("Payment successfull.");
+              setPaymentSuccessfull(true);
             })
             .catch((error) => {
               console.log(error);
+              setLoading(false);
             });
 
-          console.log("new patient >> ", newPatient);
-          console.log("old patient >> ", oldPatient);
-          console.log("data >> ", resp);
+          // console.log("new patient >> ", newPatient);
+          // console.log("old patient >> ", oldPatient);
         } catch (error) {
           console.log("lab order form error >> ", error);
+          setLoading(false);
         }
       } else {
         setPaymentStatus("Payment failed. Please try again.");
+        setLoading(false);
+
         console.log("Stripe error >> ", error);
       }
-    // }
+    }
   };
 
   return (
@@ -158,41 +218,50 @@ const LabOrdersForm = () => {
       onSubmit={handleSubmit}
       className="px-4 md:px-10 lg:px-48 w-full py-16 flex flex-col gap-4"
     >
-      
-
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="flex items-center justify-start gap-2">
-          <input
-            type="radio"
-            name="patientType"
-            value="oldPatient"
-            checked={patientType === "oldPatient"}
-            onChange={handleRadioChange}
-            className="w-5 h-5"
-          />
-          <label
-            htmlFor="newPatient"
-            className="text-sm font-normal text-gray-500"
-          >
-            New Patient
-          </label>
+        <div>
+          <div className="flex items-center justify-start gap-2">
+            <input
+              type="radio"
+              id="New Patient"
+              name="New Patient"
+              value="New Patient"
+              checked={isNewPatient === "New Patient"}
+              onChange={handleRadioInputChange}
+              className="w-5 h-5"
+            />
+            <label
+              htmlFor="New Patient"
+              className="text-sm font-normal text-gray-500"
+            >
+              New Patient
+            </label>
+          </div>
+          {errors.isNewPatient && (
+            <p className="text-red-500 text-sm mt-2">{errors.isNewPatient}</p>
+          )}
         </div>
-        <div className="flex items-center justify-start gap-2">
-          <input
-            type="radio"
-            name="patientType"
-            id="newPatient"
-            value="newPatient"
-            checked={patientType === "newPatient"}
-            onChange={handleRadioChange}
-            className="w-5 h-5"
-          />
-          <label
-            htmlFor="newPatient"
-            className="text-sm font-normal text-gray-500"
-          >
-            Old Patient
-          </label>
+        <div>
+          <div className="flex items-center justify-start gap-2">
+            <input
+              type="radio"
+              id={"Old Patient"}
+              name={"Old Patient"}
+              value={"Old Patient"}
+              checked={isNewPatient === "Old Patient"}
+              onChange={handleRadioInputChange}
+              className="w-5 h-5"
+            />
+            <label
+              htmlFor="Old Patient"
+              className="text-sm font-normal text-gray-500"
+            >
+              Old Patient
+            </label>
+          </div>
+          {errors.isNewPatient && (
+            <p className="text-red-500 text-sm">{errors.isNewPatient}</p>
+          )}
         </div>
       </div>
       <div>
@@ -360,6 +429,9 @@ const LabOrdersForm = () => {
           onChange={handleChange}
           className="w-full text-sm border py-2 rounded px-2 outline-none"
         />
+        {errors.billingAddressLine2 && (
+          <p className="text-red-500 text-sm">{errors.billingAddressLine2}</p>
+        )}
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col items-start gap-2">
@@ -377,13 +449,13 @@ const LabOrdersForm = () => {
           {errors.city && <p className="text-red-500 text-sm">{errors.city}</p>}
         </div>
         <div className="flex flex-col items-start gap-2">
-          <label htmlFor="city" className="text-gray-500 text-sm">
+          <label htmlFor="state" className="text-gray-500 text-sm">
             State
           </label>
           <select
-            name="city"
-            id="city"
-            value={data.city}
+            name="state"
+            id="state"
+            value={data.state}
             onChange={handleChange}
             className="w-full text-sm border py-2 rounded px-2 outline-none"
           >
@@ -396,6 +468,9 @@ const LabOrdersForm = () => {
             <option value="state5">State5</option>
             <option value="state6">State6</option>
           </select>
+          {errors.state && (
+            <p className="text-red-500 text-sm">{errors.state}</p>
+          )}
         </div>
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -418,7 +493,6 @@ const LabOrdersForm = () => {
         <div></div>
       </div>
       {/* payment info */}
-
       <p className="text-sm font-semibold text-gray-500 mb-2">
         Payment Info <span className="text-red-500">*</span>
       </p>
@@ -461,7 +535,6 @@ const LabOrdersForm = () => {
           )}
         </div>
       </div> */}
-
       {/* <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
         <div>
           <label htmlFor="cardExpirationDate" className="text-gray-500 text-sm">
@@ -495,7 +568,39 @@ const LabOrdersForm = () => {
           {errors.cvc && <p className="text-red-500 text-sm">{errors.cvc}</p>}
         </div>
       </div> */}
+      <div className="w-full flex flex-col items-start gap-1 mt-4">
+        <p className="text-sm font-semibold text-gray-500 mb-2">
+          Authorization <span className="text-red-500">*</span>
+        </p>
 
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            name="authorization"
+            id="authorization"
+            checked={isChecked}
+            onChange={checkHandler}
+          />
+          <label
+            htmlFor="authorization"
+            className={`text-sm text-gray-500 ${isChecked && "font-semibold"}`}
+          >
+            I authorize my credit card to be charged for the agreed upon
+            purchase.
+          </label>
+        </div>
+      </div>
+      <div className="w-full">
+        <ReCAPTCHA
+          sitekey="6LcV_yYqAAAAAPcoQt5-z9mmXfj__xje9jb6JK1a"
+          onChange={onChange}
+          ref={captchaRef}
+        />
+
+        {errors.captcha && (
+          <p className="text-red-500 text-sm">{errors.captcha}</p>
+        )}
+      </div>
       <div className="mt-4">
         <p className="text-lg font-semibold text-black mb-2">Total</p>
         <p className="text-[#c00000] font-semibold mb-2 text-base">$124.95</p>
@@ -503,9 +608,25 @@ const LabOrdersForm = () => {
           type="submit"
           className="px-4 py-2 mt-4 rounded-md text-sm font-medium bg-color text-white"
         >
-          Pay Now
+          {loading ? "Loading..." : "Pay Now"}
         </button>
       </div>
+      {paymentSuccessfull && (
+        <div className="w-full h-screen fixed top-0 left-0 z-50 bg-[rgba(0,0,0,0.5)] flex items-center justify-center">
+          <div className="w-full lg:w-auto border bg-white rounded-xl p-8 lg:py-16 lg:px-28 flex flex-col items-center justify-center relative">
+            <button
+              className="absolute top-4 right-4 w-6 h-6 bg-gray-400/20 rounded-full flex items-center justify-center"
+              onClick={() => setPaymentSuccessfull(false)}
+            >
+              <IoClose className="text-xl" />
+            </button>
+            <div className="w-[64px] h-[64px] rounded-full bg-red-50 flex items-center justify-center">
+              <FaCheck className="text-[30px] text-red-600" />
+            </div>
+            <h3 className="font-semibold text-xl mt-4">Payment Successfull</h3>
+          </div>
+        </div>
+      )}
     </form>
   );
 };

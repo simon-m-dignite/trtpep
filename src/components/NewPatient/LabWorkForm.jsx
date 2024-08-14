@@ -17,7 +17,7 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
           onChange={() =>
             handleRadioChange(
               "bloodWorkForTestosterone",
-              "Covers Total Testosterone, CBC, CMP, and PSA",
+              "Total Testosterone",
               124.95
             )
           }
@@ -32,7 +32,7 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="labWorkDetails"
-          value={"upload"}
+          value={"0"}
           checked={
             formData.labWorkDetails.bloodWorkForTestosterone?.price === 0
           }
@@ -57,12 +57,12 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="labWorkDetails"
-          value={"upload"}
+          value={"0"}
           checked={
-            formData.labWorkDetails.bloodWorkForTestosterone?.price === "N/A"
+            formData.labWorkDetails.bloodWorkForTestosterone?.price === "0"
           }
           onChange={() =>
-            handleRadioChange("bloodWorkForTestosterone", "N/A", "N/A")
+            handleRadioChange("bloodWorkForTestosterone", "0", "0")
           }
           id=""
           className="w-5 h-5"

@@ -5,6 +5,7 @@ import { IoCallSharp } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
 import { RiArrowRightUpLine } from "react-icons/ri";
+import Sidebar from "./Sidebar";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
@@ -79,7 +80,10 @@ const Navbar = () => {
       <div
         className={`w-full py-4 lg:py-6 flex items-center justify-between ${styles.paddingHorizontal} relative`}
       >
-        <Link to="/" className={`text-2xl font-semibold uppercase text-[#c00000]`}>
+        <Link
+          to="/"
+          className={`text-2xl font-semibold uppercase text-[#c00000]`}
+        >
           <span className="">TRT</span>pep
         </Link>
         <ul className="hidden lg:flex items-center gap-10">
@@ -278,53 +282,7 @@ const Navbar = () => {
             showNav ? "translate-x-0" : "translate-x-full"
           } transition-all duration-500`}
         >
-          <div className="w-[90%] md:w-[50%] h-full bg-white float-end relative pt-16 shadow-2xl">
-            <button
-              className="w-8 h-8 bg-color p-1.5 absolute top-4 right-4"
-              onClick={handleShowNav}
-            >
-              <CgClose className="w-full h-full text-white" />
-            </button>
-
-            <div className="w-full px-8">
-              <Link
-                to="/"
-                className="font-bold text-base uppercase border-b py-3 w-full block"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/"
-                className="font-bold text-base uppercase border-b py-3 w-full block"
-              >
-                blog
-              </Link>
-              <Link
-                to="/"
-                className="font-bold text-base uppercase border-b py-3 w-full block"
-              >
-                faq
-              </Link>
-              <Link
-                to="/"
-                className="font-bold text-base uppercase border-b py-3 w-full block"
-              >
-                choose a therapy
-              </Link>
-              <Link
-                to="/"
-                className="font-bold text-base uppercase border-b py-3 w-full block"
-              >
-                labs
-              </Link>
-              <Link
-                to="/"
-                className="font-bold text-base uppercase border-b py-3 w-full block"
-              >
-                pay now
-              </Link>
-            </div>
-          </div>
+          <Sidebar handleShowNav={handleShowNav} />
         </div>
       </div>
     </nav>

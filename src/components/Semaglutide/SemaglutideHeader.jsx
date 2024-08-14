@@ -10,7 +10,7 @@ const SemaglutideHeader = () => {
         Master Your Metabolism <br /> with Semaglutide!
       </h1>
       <h2 className="text-white text-sm">
-        Just $460/month for a 2.5-month supply* at $1380
+        Just $379/month for a 2.5-month supply* at $947.50
       </h2>
     </main>
   );

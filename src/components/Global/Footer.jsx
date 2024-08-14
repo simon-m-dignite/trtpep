@@ -13,14 +13,14 @@ const Footer = () => {
         <div className="flex flex-col items-start gap-y-4">
           <h6 className="text-white font-semibold text-base">About TRTPEP</h6>
           <p className="text-sm text-white">
-            At TRT PEP our goal is to provide exceptional healthcare while
+            At TRTPEP our goal is to provide exceptional healthcare while
             offering the patient the right to quality prescription medication
             without the hassle of visiting a doctors office.
           </p>
         </div>
         <div className="flex justify-center items-center">
           <h1 className="text-white font-bold text-7xl lg:text-7xl uppercase">
-            TRPEP
+            TRTPEP
           </h1>
         </div>
         <div className="flex flex-col items-start gap-y-4">
@@ -32,11 +32,14 @@ const Footer = () => {
             (888) 942-0006
           </p>
           <p className="text-sm text-white flex items-center gap-2">
-            <HiBuildingOffice className="text-lg" /> 12602 105 Galileo Drive
-            Williamsville, NY. 14221
+            <HiBuildingOffice className="text-lg" /> 8265 Sheridan Dr. Buffalo
+            New York 14221
           </p>
           <div>
-            <Link to="/testosterone-replacement-therapy/" className="text-blue-950 bg-white px-4 py-2 text-sm font-semibold uppercase rounded-full flex items-center justify-center gap-1">
+            <Link
+              to="/testosterone-replacement-therapy/"
+              className="text-blue-950 bg-white px-4 py-2 text-sm font-semibold uppercase rounded-full flex items-center justify-center gap-1"
+            >
               enroll now <FiArrowUpRight className="text-lg" />
             </Link>
           </div>
