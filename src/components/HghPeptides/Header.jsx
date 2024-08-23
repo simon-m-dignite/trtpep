@@ -11,7 +11,7 @@ const Header = () => {
         Growth Hormone Peptides for only $233/Month *3 Months Minimum Order
       </h6>
       <a
-        href="#hgh-peptides-form"
+        href="#enrollment-form"
         className="bg-color text-white px-8 py-3 tracking-wide rounded-lg text-base font-medium mt-5"
       >
         Enroll Now

@@ -19,9 +19,10 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex justify-center items-center">
-          <h1 className="text-white font-bold text-7xl lg:text-7xl uppercase">
+          {/* <h1 className="text-white font-bold text-7xl lg:text-7xl uppercase">
             TRTPEP
-          </h1>
+          </h1> */}
+          <img src="/TRT-WHITE-LOGO.png" alt="trtpep-logo" className="w-24" />
         </div>
         <div className="flex flex-col items-start gap-y-4">
           <h6 className="text-white font-semibold text-base">
@@ -38,7 +39,7 @@ const Footer = () => {
           <div>
             <Link
               to="/testosterone-replacement-therapy/"
-              className="text-blue-950 bg-white px-4 py-2 text-sm font-semibold uppercase rounded-full flex items-center justify-center gap-1"
+              className="text-blue-950 bg-white px-4 py-2 text-sm font-semibold uppercase rounded-md flex items-center justify-center gap-1"
             >
               enroll now <FiArrowUpRight className="text-lg" />
             </Link>

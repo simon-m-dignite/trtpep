@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import Layout from "../components/Global/Layout";
+import EnrollmentThankYouPage from "../pages/thankyou/EnrollmentThankYouPage";
 
 const NewPatient = lazy(() => import("../pages/newPatient/NewPatient"));
 const ContactUs = lazy(() => import("../pages/aboutus/ContactUs"));
@@ -29,6 +30,9 @@ const SemaglutideTherapy = lazy(() =>
 const TirzepatideTherapy = lazy(() =>
   import("../pages/chooseTherapy/TirzepatideTherapy")
 );
+const PaymentSuccessPage = lazy(() =>
+  import("../pages/success/PaymentSuccessPage")
+);
 
 export const routes = [
   {
@@ -53,7 +57,7 @@ export const routes = [
   },
   {
     title: "Blog Page",
-    url: "/blogs/8976",
+    url: "/blogs/:id",
     page: <Layout pages={<Blog />} />,
   },
   {
@@ -83,6 +87,11 @@ export const routes = [
   },
   {
     title: "Lab Orders Page",
+    url: "/thank-you-trt-enrollment/",
+    page: <Layout pages={<EnrollmentThankYouPage />} />,
+  },
+  {
+    title: "Lab Orders Page",
     url: "/hcg-therapy/",
     page: <Layout pages={<HcgTherapy />} />,
   },
@@ -105,5 +114,10 @@ export const routes = [
     title: "Sermorelin Therapy Page",
     url: "/tirzepatide-therapy/",
     page: <Layout pages={<TirzepatideTherapy />} />,
+  },
+  {
+    title: "Lab Order Success Page",
+    url: "/payment-success/",
+    page: <Layout pages={<PaymentSuccessPage />} />,
   },
 ];

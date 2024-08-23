@@ -144,6 +144,19 @@
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
+    url("/what-is-trt.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+}
+
+.blog-hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
     url("/blogs-hero-img.jpg");
   background-size: cover;
   background-position: center;
@@ -268,6 +281,13 @@
   height: 60vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("./NEW-PATIENT-PAYMENT-FORM.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.thankYouheader {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/thank-you-header-image.jpg");
   background-position: center;
   background-size: cover;
 }

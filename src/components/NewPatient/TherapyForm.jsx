@@ -41,9 +41,9 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="testosterone"
-          value={"0"}
-          checked={formData.therapyDetails.testosterone?.price === "0"}
-          onChange={() => handleRadioChange("testosterone", "0", "0")}
+          value={0}
+          checked={formData.therapyDetails.testosterone?.price === 0}
+          onChange={() => handleRadioChange("testosterone", "N/A", 0)}
           className="w-5 h-5"
         />
         <label htmlFor="" className="text-sm mt-1">
@@ -89,9 +89,9 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="peptide"
-          value={"0"}
-          checked={formData.therapyDetails.peptide?.price === "0"}
-          onChange={() => handleRadioChange("peptide", "0", "0")}
+          value={0}
+          checked={formData.therapyDetails.peptide?.price === 0}
+          onChange={() => handleRadioChange("peptide", "N/A", 0)}
           id=""
           className="w-5 h-5"
         />
@@ -100,7 +100,7 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         </label>
       </div>
 
-      {formData?.therapyDetails?.testosterone?.title == "With HCG" && (
+      {formData?.therapyDetails?.testosterone?.title == "N/A" && (
         <>
           <h6 className="text-gray-600 font-semibold text-base mt-4">
             HCG Therapy
@@ -126,9 +126,9 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
             <input
               type="radio"
               name="hcg"
-              value={"0"}
-              checked={formData.therapyDetails.hcg?.price === "0"}
-              onChange={() => handleRadioChange("hcg", "0", "0")}
+              value={0}
+              checked={formData.therapyDetails.hcg?.price === 0}
+              onChange={() => handleRadioChange("hcg", "N/A", 0)}
               id=""
               className="w-5 h-5"
             />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   // State for form inputs
@@ -9,8 +10,10 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhone] = useState("");
   const [errors, setErrors] = useState({});
-
+  const [loading, setLoading] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
+
+  const navigate = useNavigate();
 
   // Validate form inputs
   const validateForm = () => {
@@ -49,12 +52,12 @@ const Form = () => {
     return valid;
   };
 
-  // Handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (validateForm()) {
-      // Construct form data
+      setLoading(true);
+
       const formData = {
         firstName,
         lastName,
@@ -62,28 +65,38 @@ const Form = () => {
         phoneNumber,
       };
 
-      // Send form data to API
-      fetch("http://localhost:8000/api/enroll-patient", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/enroll-patient",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
           console.log("Success:", data);
           setSuccessModal(true);
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-          setPhone("");
-        })
-        .catch((error) => {
-          // Handle error
-          console.error("Error:", error);
+          navigate("/thank-you-trt-enrollment/");
+        } else {
+          console.error("Error:", data);
           setSuccessModal(false);
-        });
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setSuccessModal(false);
+      } finally {
+        setLoading(false);
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+      }
     }
   };
 
@@ -158,7 +171,7 @@ const Form = () => {
           </div>
         </div>
         <button className="w-full text-white bg-color rounded-md py-3 uppercase text-base font-medium">
-          Get Started
+          {loading ? "Submitting..." : "Get Started"}
         </button>
       </div>
 

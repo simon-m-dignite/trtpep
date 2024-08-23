@@ -1,112 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BlogsHero from "../../components/Blogs/BlogsHero";
 import { styles } from "../../styles/styles";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { blogs } from "../../constants/blogs";
+import BlogHero from "../../components/Blogs/BlogHero";
 
 const Blog = () => {
+  const { id } = useParams();
+  const blog = blogs.find((b) => b.id === parseInt(id));
+  if (!blog) {
+    return <div>Blog not found.</div>;
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+  }, [id]); // Trigger scroll when pathname changes
+
   return (
     <div className="w-full">
-      <BlogsHero />
+      <BlogHero blog_title={blog.blog_title} />
       <div
         className={`w-full py-12 lg:py-20 grid grid-cols-3 gap-10 ${styles.paddingHorizontal}`}
       >
         <div className="w-full col-span-3 lg:col-span-2 flex flex-col items-start gap-y-6">
           <div className="w-full">
             <img
-              src="/blog-img.jpg"
+              src={blog.blog_image}
               alt=""
-              className="w-full lg:h-[70vh] brightness-75"
+              className="w-full lg:h-[70vh] brightness-75 object-cover"
             />
           </div>
           <h1 className="font-bold text-2xl md:text-3xl text-black">
-            Power and Presence: How TRT Can Enhance Leadership Qualities at Any
-            Age
+            {blog.title}
           </h1>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam nisi,
-            nostrum quasi distinctio vel provident temporibus non voluptas.
-            Suscipit, atque? Tenetur vero aperiam iusto consequatur at animi
-            eveniet, earum et dolores accusantium dolorum consequuntur ullam in
-            cum tempore possimus cumque. Quisquam voluptatem distinctio quam
-            fugiat nulla dolores pariatur, molestiae hic, eveniet quae
-            voluptate, vero omnis dignissimos sit odit consequuntur ad commodi
-            praesentium aspernatur tenetur. Ipsum debitis reprehenderit, tempora
-            in voluptates deserunt fugiat nobis facere perspiciatis odio
-            molestias aliquid, pariatur quibusdam. Vero est odio non quas
-            voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
-            repellat delectus voluptatem ducimus cum labore.
-          </p>
-          <h1 className="font-bold text-2xl md:text-3xl text-black">
-            Understanding the Impact of Testosterone on Leadership
-          </h1>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam nisi,
-            nostrum quasi distinctio vel provident temporibus non voluptas.
-            Suscipit, atque? Tenetur vero aperiam iusto consequatur at animi
-            eveniet, earum et dolores accusantium dolorum consequuntur ullam in
-            cum tempore possimus cumque. Quisquam voluptatem distinctio quam
-            fugiat nulla dolores pariatur, molestiae hic, eveniet quae
-            voluptate, vero omnis dignissimos sit odit consequuntur ad commodi
-            praesentium aspernatur tenetur. Ipsum debitis reprehenderit, tempora
-            in voluptates deserunt fugiat nobis facere perspiciatis odio
-            molestias aliquid, pariatur quibusdam. Vero est odio non quas
-            voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
-            repellat delectus voluptatem ducimus cum labore.
-          </p>
-          <h1 className="font-bold text-2xl md:text-3xl text-black">
-            Reclaiming Your Leadership with TRT
-          </h1>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam nisi,
-            nostrum quasi distinctio vel provident temporibus non voluptas.
-            Suscipit, atque? Tenetur vero aperiam iusto consequatur at animi
-            eveniet, earum et dolores accusantium dolorum consequuntur ullam in
-            cum tempore possimus cumque. Quisquam voluptatem distinctio quam
-            fugiat nulla dolores pariatur, molestiae hic, eveniet quae
-            voluptate, vero omnis dignissimos sit odit consequuntur ad commodi
-            praesentium aspernatur tenetur. Ipsum debitis reprehenderit, tempora
-            in voluptates deserunt fugiat nobis facere perspiciatis odio
-            molestias aliquid, pariatur quibusdam. Vero est odio non quas
-            voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
-            repellat delectus voluptatem ducimus cum labore.
-          </p>
-          <h1 className="font-bold text-2xl md:text-3xl text-black">
-            TRTPEP: A Partner in Your Leadership Journey
-          </h1>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam nisi,
-            nostrum quasi distinctio vel provident temporibus non voluptas.
-            Suscipit, atque? Tenetur vero aperiam iusto consequatur at animi
-            eveniet, earum et dolores accusantium dolorum consequuntur ullam in
-            cum tempore possimus cumque. Quisquam voluptatem distinctio quam
-            fugiat nulla dolores pariatur, molestiae hic, eveniet quae
-            voluptate, vero omnis dignissimos sit odit consequuntur ad commodi
-            praesentium aspernatur tenetur. Ipsum debitis reprehenderit, tempora
-            in voluptates deserunt fugiat nobis facere perspiciatis odio
-            molestias aliquid, pariatur quibusdam. Vero est odio non quas
-            voluptate, perferendis at fugit nihil adipisci nemo incidunt sequi
-            repellat delectus voluptatem ducimus cum labore.
-          </p>
+          {blog.sections.map((b, index) => {
+            return (
+              <div>
+                <h1 className="font-bold text-lg mb-3 md:text-xl text-black">
+                  {b.heading}
+                </h1>
+                <p className="text-gray-500">{b.paragraph}</p>
+              </div>
+            );
+          })}
         </div>
 
         <div className="w-full col-span-3 lg:col-span-1 lg:p-5 flex flex-col gap-y-10 md:gap-y-0">
-          {/* <div className="flex items-center justify-start gap-2">
-            <input
-              type="text"
-              className="rounded-md outline-none border px-3 py-2.5 text-sm"
-              placeholder="Search here"
-            />
-            <button className="bg-blue-900 rounded-md p-3">
-              <FiSearch className="text-white" />
-            </button>
-          </div> */}
-
           <div className="flex flex-col items-start lg:mt-16 gap-2 lg:w-60">
             <h4 className="font-medium text-sm">Treatments</h4>
             <Link
-              to="/"
+              to="/testosterone-replacement-therapy/"
               className="flex items-center gap-2 border-b py-1.5 w-full"
             >
               <span className="w-4 h-4 bg-gray-200 rounded-full">
@@ -117,32 +62,60 @@ const Blog = () => {
               </span>
             </Link>
             <Link
-              to="/"
+              to="/hcg-therapy/"
+              className="flex items-center gap-2 border-b py-1.5 w-full"
+            >
+              <span className="w-4 h-4 bg-gray-200 rounded-full">
+                <MdOutlineKeyboardArrowRight className="text-gray-500" />
+              </span>
+              <span className="text-sm font-semibold">HCG Therapy</span>
+            </Link>
+            <Link
+              to="/tesamorelin-therapy/"
               className="flex items-center gap-2 border-b py-1.5 w-full"
             >
               <span className="w-4 h-4 bg-gray-200 rounded-full">
                 <MdOutlineKeyboardArrowRight className="text-gray-500" />
               </span>
               <span className="text-sm font-semibold">
-                Testosterone Therapy
+                Tesamoreline Therapy
               </span>
             </Link>
             <Link
-              to="/"
+              to="/sermorelin-therapy/"
               className="flex items-center gap-2 border-b py-1.5 w-full"
             >
               <span className="w-4 h-4 bg-gray-200 rounded-full">
                 <MdOutlineKeyboardArrowRight className="text-gray-500" />
               </span>
-              <span className="text-sm font-semibold">
-                Testosterone Therapy
+              <span className="text-sm font-semibold">Sermoreline Therapy</span>
+            </Link>
+            <Link
+              to="/semaglutide-therapy/"
+              className="flex items-center gap-2 border-b py-1.5 w-full"
+            >
+              <span className="w-4 h-4 bg-gray-200 rounded-full">
+                <MdOutlineKeyboardArrowRight className="text-gray-500" />
               </span>
+              <span className="text-sm font-semibold">Semaglutide Therapy</span>
+            </Link>
+            <Link
+              to="/tirzepatide-therapy/"
+              className="flex items-center gap-2 border-b py-1.5 w-full"
+            >
+              <span className="w-4 h-4 bg-gray-200 rounded-full">
+                <MdOutlineKeyboardArrowRight className="text-gray-500" />
+              </span>
+              <span className="text-sm font-semibold">Tirzepatide Therapy</span>
             </Link>
           </div>
 
           <div className="flex flex-col items-start lg:mt-16 gap-2 lg:w-60">
             <h4 className="font-medium text-sm">Important Links</h4>
-            <Link to="/" className="flex items-center gap-2 py-1 w-full">
+            <Link
+              to="/lab-orders"
+              className="flex items-center gap-2 py-1 w-full"
+            >
               <span className="w-4 h-4 bg-gray-200 rounded-full">
                 <MdOutlineKeyboardArrowRight className="text-gray-500" />
               </span>
@@ -151,14 +124,14 @@ const Blog = () => {
               </span>
             </Link>
             <Link
-              to="/"
+              to="/faq"
               className="flex items-center gap-2 border-t py-2 w-full"
             >
               <span className="w-4 h-4 bg-gray-200 rounded-full">
                 <MdOutlineKeyboardArrowRight className="text-gray-500" />
               </span>
               <span className="text-sm font-normal text-gray-500">
-                Frwquently Asked Questions
+                Frequently Asked Questions
               </span>
             </Link>
           </div>

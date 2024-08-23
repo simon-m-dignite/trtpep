@@ -17,6 +17,8 @@ const Navbar = () => {
   const [openWeightLossDropdown, setOpenWeightLossDropdown] = useState(false);
   const [openPeptideDropdown, setOpenPeptideDropdown] = useState(false);
 
+  const [usageDirectionDropdown, setUsageDirectionDropdown] = useState(false);
+
   const handleNavigateToAboutPage = () => {
     navigate("/about");
   };
@@ -72,7 +74,7 @@ const Navbar = () => {
         </p>
         <Link
           to="/trt-pep-refill-validation/"
-          className="py-2 uppercase px-4 rounded-full bg-white text-black font-semibold text-xs hidden lg:flex items-center gap-1"
+          className="py-2 uppercase px-4 rounded-md bg-white text-black font-semibold text-xs hidden lg:flex items-center gap-1"
         >
           refill now <RiArrowRightUpLine className="text-base" />
         </Link>
@@ -84,7 +86,7 @@ const Navbar = () => {
           to="/"
           className={`text-2xl font-semibold uppercase text-[#c00000]`}
         >
-          <span className="">TRT</span>pep
+          <img src="/TRTPEP-LOGO.png" alt="logo" className="w-16" />
         </Link>
         <ul className="hidden lg:flex items-center gap-10">
           <li className="relative">
@@ -234,6 +236,66 @@ const Navbar = () => {
               labs
             </Link>
           </li>
+          {/* usage direction */}
+          <li className="relative">
+            <button
+              onMouseEnter={() => setUsageDirectionDropdown(true)}
+              onMouseLeave={() => setUsageDirectionDropdown(false)}
+              className={`text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300`}
+            >
+              Usage Direction
+            </button>
+            {usageDirectionDropdown && (
+              <div
+                className="rounded-md bg-white border py-6 w-72 shadow-xl absolute z-40 top-6 flex flex-col items-start"
+                onMouseEnter={() => setUsageDirectionDropdown(true)}
+                onMouseLeave={() => setUsageDirectionDropdown(false)}
+              >
+                <a
+                  href="TESTOSTERONE.pdf"
+                  download="TESTOSTERONE.pdf"
+                  className={`w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2`}
+                >
+                  Testosterone Application
+                </a>
+                <a
+                  href="HCG.pdf"
+                  download="HCG.pdf"
+                  className={`w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2`}
+                >
+                  HCG Application
+                </a>
+                <a
+                  href="CJC-SERMORELIN.pdf"
+                  download="CJC-SERMORELIN.pdf"
+                  className={`w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2`}
+                >
+                  Sermorelin Application
+                </a>
+                <a
+                  href="CJC-SERMORELIN.pdf"
+                  download="CJC-SERMORELIN.pdf"
+                  className={`w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2`}
+                >
+                  Tesamorelin Application
+                </a>
+                <a
+                  href="SEMAGLUTIDE-TIRZEPATIDE.pdf"
+                  download="SEMAGLUTIDE-TIRZEPATIDE.pdf"
+                  className={`w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2`}
+                >
+                  Semaglutide Application
+                </a>
+                <a
+                  href="SEMAGLUTIDE-TIRZEPATIDE.pdf"
+                  download="SEMAGLUTIDE-TIRZEPATIDE.pdf"
+                  className={`w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2`}
+                >
+                  Tirzepatide Application
+                </a>
+              </div>
+            )}
+          </li>
           <li className="relative">
             <button
               onMouseEnter={handleShowPayNowLinksMouseEnter}
@@ -266,7 +328,7 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center justify-end lg:hidden gap-3">
-          <button className="bg-color text-white uppercase text-sm font-semibold rounded-full px-3 py-2">
+          <button className="bg-color text-white uppercase text-sm font-semibold rounded-md px-3 py-2">
             refill now
           </button>
           <button

@@ -49,10 +49,12 @@
 
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 
 const PaymentInfoForm = ({ onSubmit }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -80,6 +82,7 @@ const PaymentInfoForm = ({ onSubmit }) => {
     const submitted = onSubmit(token);
     if (submitted) {
       setLoading(false);
+      navigate("/payment-success/");
     }
   };
 

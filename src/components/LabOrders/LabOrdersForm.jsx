@@ -9,6 +9,7 @@ import {
 import ReCAPTCHA from "react-google-recaptcha";
 import { FaCheck } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const LabOrdersForm = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -145,6 +146,7 @@ const LabOrdersForm = () => {
   };
 
   const [captcha, setCaptcha] = useState("");
+  const navigate = useNavigate();
 
   function onChange(value) {
     setCaptcha(value);
@@ -192,6 +194,21 @@ const LabOrdersForm = () => {
               setLoading(false);
               setPaymentStatus("Payment successfull.");
               setPaymentSuccessfull(true);
+              setData({
+                firstName: "",
+                lastName: "",
+                email: "",
+                phone: "",
+                date_of_birth: "",
+                shippingState: "",
+                billingAddress: "",
+                billingAddressLine2: "",
+                city: "",
+                zipCode: "",
+                amount: "125",
+                state: "",
+              });
+              navigate("/payment-success/");
             })
             .catch((error) => {
               console.log(error);

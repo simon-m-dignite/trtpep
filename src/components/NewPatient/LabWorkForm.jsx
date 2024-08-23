@@ -32,7 +32,7 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="labWorkDetails"
-          value={"0"}
+          value={0}
           checked={
             formData.labWorkDetails.bloodWorkForTestosterone?.price === 0
           }
@@ -57,12 +57,12 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="labWorkDetails"
-          value={"0"}
+          value={0}
           checked={
-            formData.labWorkDetails.bloodWorkForTestosterone?.price === "0"
+            formData.labWorkDetails.bloodWorkForTestosterone?.price === 0
           }
           onChange={() =>
-            handleRadioChange("bloodWorkForTestosterone", "0", "0")
+            handleRadioChange("bloodWorkForTestosterone", "N/A", 0)
           }
           id=""
           className="w-5 h-5"

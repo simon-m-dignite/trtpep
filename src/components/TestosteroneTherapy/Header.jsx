@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="w-full testosterone-therapy-header flex flex-col items-center justify-end text-white pb-10 md:pb-20 gap-4 text-center px-4">
       <h1 className="text-9xl font-extrabold">
-        <sup className="font-semibold text-lg relative -top-20">$</sup>88{" "}
+        <sup className="font-semibold text-lg relative -top-20">$</sup>89{" "}
         <sub className="font-semibold text-lg relative -left-6 -top-1">
           .99 / month
         </sub>
