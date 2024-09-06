@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { states } from "../../constants/states";
 
 const ExistingPatientSearchForm = () => {
   const [shippingState, setShippingState] = useState("");
@@ -35,13 +36,16 @@ const ExistingPatientSearchForm = () => {
   const searchPatient = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const data = await fetch("http://localhost:8000/api/search-patient", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ shippingState, email }),
-      });
+      const data = await fetch(
+        "https://backend.trtpep.com/api/search-patient",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ shippingState, email }),
+        }
+      );
 
       const resp = await data.json();
       console.log("patient-data >> ", resp);
@@ -72,21 +76,18 @@ const ExistingPatientSearchForm = () => {
             </label>
             <select
               name="shippingState"
-              value={shippingState}
+              value={shippingState || ""}
               onChange={(e) => setShippingState(e.target.value)}
               id="state"
               className="border mt-1.5 w-60 p-2 rounded-md text-sm outline-none"
             >
-              <option value="California">California</option>
-              <option value="Texas">Texas</option>
-              <option value="Florida">Florida</option>
-              <option value="New York">New York</option>
-              <option value="Pennsylvania">Pennsylvania</option>
-              <option value="Ohio">Ohio</option>
-              <option value="Illinois">Illinois</option>
-              <option value="Georgia">Georgia</option>
-              <option value="North Carolina">North Carolina</option>
-              <option value="Michigan">Michigan</option>
+              {states.map((s, index) => {
+                return (
+                  <option value={s} key={index}>
+                    {s}
+                  </option>
+                );
+              })}
             </select>
             {errors.shippingState && (
               <p className="text-red-600 text-sm">{errors.shippingState}</p>

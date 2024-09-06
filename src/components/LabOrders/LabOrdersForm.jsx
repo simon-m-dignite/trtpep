@@ -10,6 +10,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { FaCheck } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { states } from "../../constants/states";
 
 const LabOrdersForm = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -171,7 +172,7 @@ const LabOrdersForm = () => {
       if (token?.id) {
         try {
           axios
-            .post("http://localhost:8000/api/create-payment-intent", {
+            .post("https://backend.trtpep.com/api/create-payment-intent", {
               data: data,
               id: token?.id,
               amount: data.amount,
@@ -401,14 +402,13 @@ const LabOrdersForm = () => {
             onChange={handleChange}
             className="w-full text-sm border py-2 rounded px-2 outline-none"
           >
-            {/* Add options here */}
-            <option value="">Select You State</option>
-            <option value="state1">State1</option>
-            <option value="state2">State2</option>
-            <option value="state3">State3</option>
-            <option value="state4">State4</option>
-            <option value="state5">State5</option>
-            <option value="state6">State6</option>
+            {states.map((s, index) => {
+              return (
+                <option value={s} key={index}>
+                  {s}
+                </option>
+              );
+            })}
           </select>
           {errors.shippingState && (
             <p className="text-red-500 text-sm">{errors.shippingState}</p>
@@ -476,14 +476,13 @@ const LabOrdersForm = () => {
             onChange={handleChange}
             className="w-full text-sm border py-2 rounded px-2 outline-none"
           >
-            {/* Add options here */}
-            <option value="">Select You State</option>
-            <option value="state1">State1</option>
-            <option value="state2">State2</option>
-            <option value="state3">State3</option>
-            <option value="state4">State4</option>
-            <option value="state5">State5</option>
-            <option value="state6">State6</option>
+            {states.map((s, index) => {
+              return (
+                <option value={s} key={index}>
+                  {s}
+                </option>
+              );
+            })}
           </select>
           {errors.state && (
             <p className="text-red-500 text-sm">{errors.state}</p>

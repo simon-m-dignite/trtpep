@@ -1,4 +1,5 @@
 import React from "react";
+import { states } from "../../constants/states";
 
 const ShippingInfoForm = ({ formData, setFormData }) => {
   // Handler for input changes
@@ -98,13 +99,27 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
           <label htmlFor="state" className="text-[13px] text-gray-500">
             State
           </label>
-          <input
+          <select
+            name="shippingState"
+            value={formData.shippingInfo.shippingState || ""}
+            onChange={handleInputChange}
+            className="text-sm p-2 border outline-none rounded"
+          >
+            {states.map((s, index) => {
+              return (
+                <option value={s} key={index}>
+                  {s}
+                </option>
+              );
+            })}
+          </select>
+          {/* <input
             type="text"
             name="shippingState"
             value={formData.shippingInfo.shippingState || ""}
             onChange={handleInputChange}
             className="text-sm p-2 border outline-none rounded"
-          />
+          /> */}
         </div>
       </div>
 
@@ -206,13 +221,27 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
               >
                 State
               </label>
-              <input
+              <select
+                name="billingState"
+                value={formData.billingInfo.billingState || ""}
+                onChange={handleInputChange2}
+                className="text-sm p-2 border outline-none rounded"
+              >
+                {states.map((s, index) => {
+                  return (
+                    <option value={s} key={index}>
+                      {s}
+                    </option>
+                  );
+                })}
+              </select>
+              {/* <input
                 type="text"
                 name="billingState"
                 value={formData.billingInfo.billingState || ""}
                 onChange={handleInputChange2}
                 className="text-sm p-2 border outline-none rounded"
-              />
+              /> */}
             </div>
           </div>
 

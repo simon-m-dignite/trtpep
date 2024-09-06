@@ -147,13 +147,16 @@ function NewPatientForm() {
       // Log data to verify its structure
       console.log("Data being sent:", JSON.stringify(requestData, null, 2));
 
-      const response = await fetch("http://localhost:8000/api/new-patient", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      });
+      const response = await fetch(
+        "https://backend.trtpep.com/api/new-patient",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      );
       const resp = await response.json();
       console.log("Payment successful", resp);
       alert(resp.message);
