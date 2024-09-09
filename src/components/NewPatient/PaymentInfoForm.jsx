@@ -51,7 +51,7 @@ import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useNavigate } from "react-router-dom";
 
-const PaymentInfoForm = ({ onSubmit }) => {
+const PaymentInfoForm = ({ onSubmit, totalAmount }) => {
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ const PaymentInfoForm = ({ onSubmit }) => {
       <div>
         <div className="mb-4">
           <p className="font-semibold text-base text-blue-900">Total</p>
-          <p className="font-normal mt-2 text-base">$250</p>{" "}
+          <p className="font-normal mt-2 text-base">${totalAmount}</p>{" "}
         </div>{" "}
         <div className="flex flex-col items-start gap-1 mt-4">
           {" "}

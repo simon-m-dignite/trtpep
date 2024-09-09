@@ -10,6 +10,7 @@ import ShippingInfoForm from "./ShippingInfoForm";
 import PaymentInfoForm from "./PaymentInfoForm";
 import axios from "axios";
 import { styles } from "../../styles/styles";
+import { useNavigate } from "react-router-dom";
 
 // Make sure to replace with your own Stripe publishable key
 const stripePromise = loadStripe(
@@ -19,6 +20,7 @@ const stripePromise = loadStripe(
 function NewPatientForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [totalAmount, setTotalAmount] = useState(0);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     therapyDetails: {
       testosterone: "",
@@ -160,6 +162,7 @@ function NewPatientForm() {
       const resp = await response.json();
       console.log("Payment successful", resp);
       alert(resp.message);
+      navigate("https://azalea-aesthetics.square.site/");
       return true;
     } catch (error) {
       setPaymentStatus("Payment failed. Please try again.");
@@ -217,7 +220,9 @@ function NewPatientForm() {
     {
       count: 5,
       title: "Payment",
-      content: <PaymentInfoForm onSubmit={handleSubmit} />,
+      content: (
+        <PaymentInfoForm onSubmit={handleSubmit} totalAmount={totalAmount} />
+      ),
     },
   ];
 
