@@ -14,7 +14,7 @@ const Header = () => {
         Includes Initial Consult, Testosterone Cypionate, Anastrozole, Syringes
         and Shipping.
       </p>
-      <p className="text-xs font-semibold">*$497 with HCG. NO HIDDN FEES.</p>
+      {/* <p className="text-xs font-semibold">*$497 with HCG. NO HIDDN FEES.</p> */}
       <p className="text-xs font-semibold">
         *Minimum purchase 2.5 month supply
       </p>

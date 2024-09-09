@@ -91,7 +91,7 @@ const PaymentInfoForm = ({ onSubmit, totalAmount }) => {
       <h2 className="text-lg font-semibold mb-4">Payment Information</h2>
       <div>
         <div className="mb-4">
-          <p className="font-semibold text-base text-blue-900">Total</p>
+          <p className="font-semibold text-base text-[#c00000]">Total</p>
           <p className="font-normal mt-2 text-base">${totalAmount}</p>{" "}
         </div>{" "}
         <div className="flex flex-col items-start gap-1 mt-4">

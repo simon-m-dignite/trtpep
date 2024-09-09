@@ -53,7 +53,7 @@ const TestosteroneTherapy = () => {
         <img
           src="/testosterone-img.webp"
           alt="testosterone-image"
-          className=" my-6 rounded-xl h-[80vh] w-full"
+          className=" my-6 rounded-xl lg:h-[80vh] w-full"
         />
         <p className="text-gray-600">
           Today, the average 30-year-old has testosterone levels akin to a man
@@ -210,8 +210,6 @@ const TestosteroneTherapy = () => {
             </div>
           ))}
         </div>
-
-       
       </div>
       <Form />
     </div>

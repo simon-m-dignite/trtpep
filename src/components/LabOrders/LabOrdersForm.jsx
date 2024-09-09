@@ -128,10 +128,10 @@ const LabOrdersForm = () => {
       valid = false;
     }
 
-    if (!data.billingAddressLine2) {
-      errors.billingAddressLine2 = "Billing address line is required";
-      valid = false;
-    }
+    // if (!data.billingAddressLine2) {
+    //   errors.billingAddressLine2 = "Billing address line is required";
+    //   valid = false;
+    // }
 
     if (!data.city) {
       errors.city = "City is required";
@@ -446,9 +446,9 @@ const LabOrdersForm = () => {
           onChange={handleChange}
           className="w-full text-sm border py-2 rounded px-2 outline-none"
         />
-        {errors.billingAddressLine2 && (
+        {/* {errors.billingAddressLine2 && (
           <p className="text-red-500 text-sm">{errors.billingAddressLine2}</p>
-        )}
+        )} */}
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col items-start gap-2">

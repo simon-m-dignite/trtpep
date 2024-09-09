@@ -93,7 +93,7 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
           <option value="" selected></option>
           <option value="Facebook">Facebook</option>
           <option value="Instagram">Instagram</option>
-          <option value="Instagram">Twitter</option>
+          <option value="Twitter">Twitter</option>
           <option value="Reddit">Reddit</option>
           <option value="Other">Other</option>
         </select>

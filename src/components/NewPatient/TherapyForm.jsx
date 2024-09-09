@@ -100,7 +100,10 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         </label>
       </div>
 
-      {formData?.therapyDetails?.testosterone?.title == "N/A" && (
+      {formData?.therapyDetails?.testosterone?.title == "With HCG" ||
+      formData?.therapyDetails?.testosterone?.title == "Without HCG" ? (
+        <></>
+      ) : (
         <>
           <h6 className="text-gray-600 font-semibold text-base mt-4">
             HCG Therapy
