@@ -209,7 +209,7 @@ const LabOrdersForm = () => {
                 amount: "125",
                 state: "",
               });
-              navigate("https://azalea-aesthetics.square.site/");
+              window.location.href = "https://azalea-aesthetics.square.site/";
             })
             .catch((error) => {
               console.log(error);

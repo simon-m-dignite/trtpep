@@ -162,7 +162,7 @@ function NewPatientForm() {
       const resp = await response.json();
       console.log("Payment successful", resp);
       alert(resp.message);
-      navigate("https://azalea-aesthetics.square.site/");
+      window.location.href = "https://azalea-aesthetics.square.site/";
       return true;
     } catch (error) {
       setPaymentStatus("Payment failed. Please try again.");
