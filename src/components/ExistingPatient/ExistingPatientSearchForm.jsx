@@ -59,7 +59,7 @@ const ExistingPatientSearchForm = () => {
     <div className="w-full min-h-screen flex  items-center justify-center py-20 bg-gray-100">
       <form
         onSubmit={searchPatient}
-        className="w-[50%] p-10 rounded-lg bg-white"
+        className="w-full lg:w-[50%] p-10 rounded-lg bg-white"
       >
         <h2 className="text-xl font-semibold">Prescription Refill</h2>
         <p className="mt-2">

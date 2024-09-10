@@ -328,9 +328,12 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center justify-end lg:hidden gap-3">
-          <button className="bg-color text-white uppercase text-sm font-semibold rounded-md px-3 py-2">
+          <Link
+            to="/trt-pep-refill-validation/"
+            className="bg-color text-white uppercase text-sm font-semibold rounded-md px-3 py-2"
+          >
             refill now
-          </button>
+          </Link>
           <button
             className="w-9 h-9 bg-color rounded-md p-1.5"
             onClick={handleShowNav}

@@ -38,7 +38,7 @@ const Footer = () => {
           </p>
           <div>
             <Link
-              to="/testosterone-replacement-therapy/"
+              to="/trt-pep-refill-validation/"
               className="text-blue-950 bg-white px-4 py-2 text-sm font-semibold uppercase rounded-md flex items-center justify-center gap-1"
             >
               enroll now <FiArrowUpRight className="text-lg" />
