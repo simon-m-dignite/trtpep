@@ -10,7 +10,7 @@ const LabOrdersHero = () => {
         Order Labs
       </h1>
       <p className="lg:w-[90%]">
-        If you are a new or existing patient interested in purchasing a lab
+        If you are a new or existing patient interested in purchasing only lab
         order from TRTPEP, please purchase it here. You will receive a Lab
         requisition by email with instructions within 24hrs. Take your
         requisition to your Quest Labs to fulfill your blood draw.
