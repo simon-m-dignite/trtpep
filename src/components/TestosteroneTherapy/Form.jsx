@@ -103,7 +103,7 @@ const Form = () => {
   return (
     <form
       id="enrollment-form"
-      className="w-full flex flex-col items-center text-center gap-4 my-20 lg:w-[60%] mx-auto"
+      className="w-full flex flex-col items-center text-center gap-4 my-20 px-6 lg:w-[60%] mx-auto"
       onSubmit={handleSubmit}
     >
       <h1 className="text-2xl font-semibold">

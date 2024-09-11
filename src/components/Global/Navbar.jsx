@@ -66,9 +66,9 @@ const Navbar = () => {
       <div
         className={`${styles.paddingHorizontal} w-full bg-color flex items-center justify-between py-2`}
       >
-        <p className="text-white font-medium text-sm flex items-center gap-1.5 mx-auto lg:mx-0">
+        <p className="text-white font-medium text-sm flex flex-col lg:flex-row items-center gap-1.5 mx-auto lg:mx-0">
           <IoCallSharp className="text-gray-400 text-lg" /> (888) 942-0006
-          <span className="hidden lg:block lg:ml-10">
+          <span className="block lg:ml-10">
             Support Hours: M-F 10AM-5PM EST
           </span>
         </p>

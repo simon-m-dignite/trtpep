@@ -1,6 +1,12 @@
 import React from "react";
 
 const Header = () => {
+  const scrollToOpenPositions = () => {
+    const section = document.getElementById("enrollment-form");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="w-full testosterone-therapy-header flex flex-col items-center justify-end text-white pb-10 md:pb-20 gap-4 text-center px-4">
       <h1 className="text-9xl font-extrabold">
@@ -14,16 +20,17 @@ const Header = () => {
         Includes Initial Consult, Testosterone Cypionate, Anastrozole, Syringes
         and Shipping.
       </p>
-      {/* <p className="text-xs font-semibold">*$497 with HCG. NO HIDDN FEES.</p> */}
+      <p className="text-xs font-semibold">NO HIDDEN FEES.</p>
       <p className="text-xs font-semibold">
         *Minimum purchase 2.5 month supply
       </p>
-      <a
-        href="#enrollment-form"
+      <button
+        type="button"
+        onClick={scrollToOpenPositions}
         className="bg-color text-white px-4 py-2 rounded-md font-medium"
       >
         Enroll Now
-      </a>
+      </button>
     </div>
   );
 };

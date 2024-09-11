@@ -14,27 +14,29 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="testosterone"
-          value={"250"}
-          checked={formData.therapyDetails.testosterone?.price === 250}
-          onChange={() => handleRadioChange("testosterone", "Without HCG", 250)}
+          value={"224.97"}
+          checked={formData.therapyDetails.testosterone?.price === 224.97}
+          onChange={() =>
+            handleRadioChange("testosterone", "Without HCG", 224.97)
+          }
           id=""
           className="w-5 h-5"
         />
         <label htmlFor="" className="text-sm mt-1">
-          $250.00 - Without HCG (2.5 Month Supply @ $99/month)
+          $224.97.00 - Without HCG (2.5 Month Supply @ $89.99/month)
         </label>
       </div>
       <div className="flex items-center gap-2">
         <input
           type="radio"
           name="testosterone"
-          value={"375"}
-          checked={formData.therapyDetails.testosterone?.price === 375}
-          onChange={() => handleRadioChange("testosterone", "With HCG", 375)}
+          value={"597.47"}
+          checked={formData.therapyDetails.testosterone?.price === 597.47}
+          onChange={() => handleRadioChange("testosterone", "With HCG", 597.47)}
           className="w-5 h-5"
         />
         <label htmlFor="" className="text-sm mt-1">
-          $375.00 - With HCG (2.5 Month Supply @ $149/month)
+          $597.47- With HCG (2.5 Month Supply @ $238.99/month)
         </label>
       </div>
       <div className="flex items-center gap-2">

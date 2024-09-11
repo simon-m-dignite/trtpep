@@ -149,10 +149,16 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
-            name="isBillingSameAsShipping"
-            checked={formData.isBillingSameAsShipping || false}
-            onChange={handleCheckboxChange}
-            className="w-4 h-4"
+            checked={formData.shippingInfo.isBillingSameAsShipping}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                shippingInfo: {
+                  ...formData.shippingInfo,
+                  isBillingSameAsShipping: e.target.checked,
+                },
+              })
+            }
           />
           <label
             htmlFor="isBillingSameAsShipping"
@@ -164,7 +170,8 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
       </div>
 
       {/* Billing address fields */}
-      {!formData.shippingInfo.isBillingSameAsShipping && (
+      {/* Billing address fields */}
+      {!formData.shippingInfo.isBillingSameAsShipping ? (
         <>
           <div className="flex flex-col gap-1 mt-4">
             <label
@@ -235,13 +242,6 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
                   );
                 })}
               </select>
-              {/* <input
-                type="text"
-                name="billingState"
-                value={formData.billingInfo.billingState || ""}
-                onChange={handleInputChange2}
-                className="text-sm p-2 border outline-none rounded"
-              /> */}
             </div>
           </div>
 
@@ -261,10 +261,9 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
                 className="text-sm p-2 border outline-none rounded"
               />
             </div>
-            <div></div>
           </div>
         </>
-      )}
+      ) : null}
     </div>
   );
 };

@@ -3,6 +3,9 @@ import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const PaymentSuccessPage = () => {
+  const handleNavigate = () => {
+    window.location.href = "https://azalea-aesthetics.square.site/";
+  };
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div className="w-full lg:w-auto border bg-white rounded-xl p-8 lg:py-16 lg:px-28 flex flex-col items-center justify-center relative">
@@ -19,12 +22,13 @@ const PaymentSuccessPage = () => {
           Order Placed Successfully
         </h3> */}
         <h3 className="font-semibold text-xl mt-3">Payment Successfull</h3>
-        <Link
-          to={"/"}
+        <button
+          type="button"
+          onClick={handleNavigate}
           className="mt-3 text-sm font-medium text-white bg-[#C00000] px-4 py-2 rounded-md"
         >
-          Go Back
-        </Link>
+          Schedule an appointment
+        </button>
       </div>
     </div>
   );

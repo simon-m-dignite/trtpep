@@ -23,7 +23,9 @@ const EnrollmentThankYouPage = () => {
             <p className="font-bold text-4xl">1.</p>
           </div>
           <div className="w-[95%] flex flex-col items-start gap-3">
-            <h3 className="font-bold text-lg">IF YOU NEED TO ORDER LABS</h3>
+            <h3 className="font-bold text-lg">
+              IF YOU NEED TO ORDER ONLY LABS
+            </h3>
             <p className="text-gray-500">
               Kick off your lab testing process with TRTPEP by clicking the
               button below and choosing “Initial Labs.”
@@ -50,22 +52,24 @@ const EnrollmentThankYouPage = () => {
             <p className="font-bold text-4xl">2.</p>
           </div>
           <div className="w-[95%] flex flex-col items-start gap-3">
-            <h3 className="font-bold text-lg">
-              IF YOU ARE SUBMITTING YOUR OWN LABS
+            <h3 className="font-bold text-lg uppercase">
+              If you are ready to choose a program
             </h3>
             <p className="text-gray-500">
               Please click the button below and make payment for your selected
-              Hormone Replacement Therapy Plan.
+              Therapy Plan. Once your payment is submitted you will receive a
+              link via email to access the patient portal where you will be
+              asked to complete the following:
             </p>
-            <p className="text-gray-500">
+            {/* <p className="text-gray-500">
               Once your payment is submitted you will receive a link via email
               to access the patient portal where you will be asked to complete
               the following:
-            </p>
+            </p> */}
             <ul className="list-disc px-4">
               <li className="text-gray-500">Sign consent forms</li>
               <li className="text-gray-500">Medical history forms</li>
-              <li className="text-gray-500">Upload your labs and a valid ID</li>
+              <li className="text-gray-500">Valid ID</li>
             </ul>
             <p className="text-gray-500">
               Upon receipt of your documents a Doctor consultation will be
