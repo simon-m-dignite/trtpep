@@ -29,7 +29,7 @@ const FAQs = () => {
             {item.question}
             <svg
               className={`w-4 h-4 transition-transform duration-300 transform ${
-                index === activeIndex ? "rotate-0" : "rotate-180"
+                index === activeIndex ? "rotate-180" : "rotate-0"
               }`}
               fill="none"
               viewBox="0 0 24 24"

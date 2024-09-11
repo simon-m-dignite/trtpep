@@ -9,7 +9,7 @@ const Hero = () => {
       className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-40 home-hero min-h-screen lg:h-[75vh]`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 h-full gap-x-6 gap-y-8">
-        <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center items-center text-center lg:items-start lg:text-start gap-6 lg:gap-10">
+        <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center gap-6 lg:gap-10">
           <h1 className="text-white text-4xl lg:text-8xl font-semibold tracking-tighter">
             Revitalize Your Health Online!
           </h1>
@@ -30,7 +30,7 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="col-span-1 text-center">
+        <div className="col-span-1">
           <div className="relative flex items-end w-[350px]">
             <span className="text-white font-bold text-4xl absolute top-10 md:top-20 -left-2">
               $

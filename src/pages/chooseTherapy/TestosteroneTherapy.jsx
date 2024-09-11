@@ -122,8 +122,8 @@ const TestosteroneTherapy = () => {
           </div>
 
           <div className="flex flex-col items-end gap-12">
-            <div className="w-full flex items-start justify-end gap-6">
-              <div className="flex flex-col items-end gap-1">
+            <div className="w-full flex items-start flex-row-reverse md:flex-row justify-end gap-6">
+              <div className="flex flex-col items-start md:items-end gap-1">
                 <h5 className="font-semibold">Muscles</h5>
                 <p className="text-sm text-gray-500">
                   Increased muscle growth, strength, and endurance
@@ -138,8 +138,8 @@ const TestosteroneTherapy = () => {
                 className="w-28 h-24"
               />
             </div>
-            <div className="w-full flex items-start justify-end gap-6">
-              <div className="flex flex-col items-end gap-1">
+            <div className="w-full flex items-start flex-row-reverse  md:flex-row justify-end gap-6">
+              <div className="flex flex-col items-start md:items-end gap-1">
                 <h5 className="font-semibold">Bones</h5>
                 <p className="text-sm text-gray-500">Enhanced bone density</p>
                 <p className="text-sm text-gray-500">
@@ -151,8 +151,8 @@ const TestosteroneTherapy = () => {
               </div>
               <img src="/bones.png" alt="brain-image" className="w-28 h-28" />
             </div>
-            <div className="w-full flex items-start justify-end gap-6">
-              <div className="flex flex-col items-end gap-1">
+            <div className="w-full flex items-start flex-row-reverse md:flex-row justify-end gap-6">
+              <div className="flex flex-col items-start md:items-end gap-1">
                 <h5 className="font-semibold">Skin</h5>
                 <p className="text-sm text-gray-500">
                   Stimulated hair and collagen growth

@@ -19,8 +19,8 @@ const EnrollmentThankYouPage = () => {
           of the following options:
         </h2>
         <div className="w-full flex items-start mt-10">
-          <div className="w-[5%]">
-            <p className="font-bold text-4xl">1.</p>
+          <div className="w-[10%] md:w-[5%]">
+            <p className="font-bold text-2xl md:text-4xl">1.</p>
           </div>
           <div className="w-[95%] flex flex-col items-start gap-3">
             <h3 className="font-bold text-lg">
@@ -48,8 +48,8 @@ const EnrollmentThankYouPage = () => {
           </Link>
         </div>
         <div className="w-full flex items-start mt-12">
-          <div className="w-[5%]">
-            <p className="font-bold text-4xl">2.</p>
+          <div className="w-[10%] md:w-[5%]">
+            <p className="font-bold text-2xl md:text-4xl">2.</p>
           </div>
           <div className="w-[95%] flex flex-col items-start gap-3">
             <h3 className="font-bold text-lg uppercase">
