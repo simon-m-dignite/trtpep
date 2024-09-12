@@ -3,7 +3,9 @@ import React from "react";
 const SermorelinHeader = () => {
   return (
     <main className="w-full hcg-peptides flex flex-col items-center justify-center text-white pt-36 gap-3">
-      <h1 className="text-6xl font-semibold uppercase">Sermorelin THERAPY</h1>
+      <h1 className="text-4xl text-center md:text-6xl font-semibold uppercase">
+        Sermorelin THERAPY
+      </h1>
       <h5 className="font-semibold text-sm tracking-wide mt-4">
         Boost Your Vitality with Sermorelin
       </h5>

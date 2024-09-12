@@ -2,9 +2,9 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className="w-full about-us-hero brightness-75"></div>
-      <div className="w-full py-12 lg:py-14 flex flex-col items-center gap-6">
+      <div className="w-full py-12 lg:py-14 flex flex-col items-center gap-6 px-4">
         <h1 className="text-3xl font-bold uppercase">ABOUT US</h1>
         <p className="text-gray-500 lg:w-[50%] text-center">
           With over a decade of commitment to the Fitness and Health industry,
@@ -14,7 +14,7 @@ const AboutUs = () => {
           just a choice.
         </p>
       </div>
-      <div className="w-full py-12 lg:py-14 flex flex-col items-center gap-6 bg-gray-100">
+      <div className="w-full py-12 lg:py-14 flex flex-col items-center gap-6 bg-gray-100 px-4">
         <h1 className="text-3xl font-bold uppercase">TELEMEDICINE</h1>
         <p className="text-gray-500 lg:w-[50%] text-center">
           Telemedicine leverages telecommunications technologies to deliver
@@ -24,7 +24,7 @@ const AboutUs = () => {
           labs, specialists, and pharmacies—all at the click of a button.
         </p>
       </div>
-      <div className="w-full py-12 lg:py-14 flex flex-col items-center gap-6">
+      <div className="w-full py-12 lg:py-14 flex flex-col items-center gap-6 px-4">
         <h1 className="text-3xl font-bold uppercase">OUR MISSION</h1>
         <p className="text-gray-500 lg:w-[50%] text-center">
           At TRTPEP, we are dedicated to delivering exceptional healthcare. Our

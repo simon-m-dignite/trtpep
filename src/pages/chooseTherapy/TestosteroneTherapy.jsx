@@ -66,7 +66,7 @@ const TestosteroneTherapy = () => {
           reverse the symptoms of low testosterone and regain vitality.
         </p>
 
-        <h3 className="text-3xl font-semibold mt-4">
+        <h3 className="text-2xl md:text-3xl font-semibold mt-4">
           Men undergoing Testosterone Replacement Therapy can anticipate a range
           of benefits:
         </h3>
@@ -74,7 +74,11 @@ const TestosteroneTherapy = () => {
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 my-6">
           <div className="flex flex-col items-start gap-12">
             <div className="w-full flex items-start gap-6">
-              <img src="/brain.png" alt="brain-image" className="w-32 h-28" />
+              <img
+                src="/brain.png"
+                alt="brain-image"
+                className="w-16 h-16 md:w-32 md:h-28"
+              />
               <div className="flex flex-col items-start gap-1">
                 <h5 className="font-semibold">Brain</h5>
                 <p className="text-sm text-gray-500">
@@ -90,7 +94,7 @@ const TestosteroneTherapy = () => {
               <img
                 src="/heart-health-transformed.webp"
                 alt="brain-image"
-                className="w-32 h-28"
+                className="w-16 h-16 md:w-32 md:h-28"
               />
               <div className="flex flex-col items-start gap-1">
                 <h5 className="font-semibold">Heart Health</h5>
@@ -104,7 +108,7 @@ const TestosteroneTherapy = () => {
               <img
                 src="/sexual-health.jpg"
                 alt="brain-image"
-                className="w-32 h-28"
+                className="w-16 h-16 md:w-32 md:h-28"
               />
               <div className="flex flex-col items-start gap-1">
                 <h5 className="font-semibold">Sexual Health</h5>
@@ -135,7 +139,7 @@ const TestosteroneTherapy = () => {
               <img
                 src="/muscle-image.png"
                 alt="brain-image"
-                className="w-28 h-24"
+                className="w-16 h-16 md:w-28 md:h-24"
               />
             </div>
             <div className="w-full flex items-start flex-row-reverse  md:flex-row justify-end gap-6">
@@ -149,7 +153,11 @@ const TestosteroneTherapy = () => {
                   Healthier ligaments and tendons
                 </p>
               </div>
-              <img src="/bones.png" alt="brain-image" className="w-28 h-28" />
+              <img
+                src="/bones.png"
+                alt="brain-image"
+                className="md:w-28 md:h-28 w-16 h-16"
+              />
             </div>
             <div className="w-full flex items-start flex-row-reverse md:flex-row justify-end gap-6">
               <div className="flex flex-col items-start md:items-end gap-1">
@@ -163,7 +171,7 @@ const TestosteroneTherapy = () => {
               <img
                 src="/skin-img.png"
                 alt="brain-image"
-                className="w-28 h-28"
+                className="md:w-28 md:h-28 w-16 h-16"
               />
             </div>
           </div>
@@ -194,9 +202,9 @@ const TestosteroneTherapy = () => {
               >
                 {faq.question}{" "}
                 {openIndex === index ? (
-                  <FiPlus className="" />
-                ) : (
                   <FiMinus className="" />
+                ) : (
+                  <FiPlus className="" />
                 )}
               </button>
               <div

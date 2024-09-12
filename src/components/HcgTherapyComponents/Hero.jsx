@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="w-full hcg-therapy-header flex flex-col items-center justify-end text-white pb-10 md:pb-20 gap-4 text-center px-4">
+    <div className="w-full hcg-therapy-header flex flex-col items-center justify-end text-white pb-28 md:pb-20 gap-4 text-center px-4">
       <h2 className="text-5xl font-bold">HCG</h2>
       <p className="text-sm font-semibold">Empower Your Fertility with HCG</p>
       <p className="text-sm font-semibold">

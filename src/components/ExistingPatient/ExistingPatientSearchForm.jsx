@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { states } from "../../constants/states";
 
 const ExistingPatientSearchForm = () => {
@@ -9,6 +9,7 @@ const ExistingPatientSearchForm = () => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
   const [successModal, setSuccessModal] = useState(false);
+  const navigate = useNavigate();
 
   const [message, setMessage] = useState("");
 
@@ -49,6 +50,7 @@ const ExistingPatientSearchForm = () => {
 
       const resp = await data.json();
       console.log("patient-data >> ", resp);
+      navigate("/new-patients");
       // setSuccessModal(true);
       setMessage(resp.message);
     } else {

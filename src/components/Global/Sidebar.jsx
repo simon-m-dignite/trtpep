@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { CgClose } from "react-icons/cg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 const Sidebar = ({ handleShowNav }) => {
-  const [showNav, setShowNav] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showPayNowLinks, setShowPayNowLinks] = useState(false);
   const [openWeightLossDropdown, setOpenWeightLossDropdown] = useState(false);
@@ -13,6 +12,10 @@ const Sidebar = ({ handleShowNav }) => {
 
   const handleMouseEnter = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleLinkClick = () => {
+    handleShowNav(); // Close the sidebar on link click
   };
 
   return (
@@ -28,21 +31,25 @@ const Sidebar = ({ handleShowNav }) => {
         <Link
           to="/about"
           className="font-bold text-base uppercase border-b py-3 w-full block"
+          onClick={handleLinkClick}
         >
           About Us
         </Link>
         <Link
           to="/blogs"
           className="font-bold text-base uppercase border-b py-3 w-full block"
+          onClick={handleLinkClick}
         >
           blog
         </Link>
         <Link
           to="/faq"
           className="font-bold text-base uppercase border-b py-3 w-full block"
+          onClick={handleLinkClick}
         >
           faq
         </Link>
+
         <div className="w-full text-start">
           <button
             onClick={handleMouseEnter}
@@ -55,6 +62,7 @@ const Sidebar = ({ handleShowNav }) => {
         <Link
           to="/lab-orders"
           className="font-bold text-base uppercase border-b py-3 w-full block"
+          onClick={handleLinkClick}
         >
           Labs
         </Link>
@@ -64,15 +72,18 @@ const Sidebar = ({ handleShowNav }) => {
               <Link
                 to="/testosterone-replacement-therapy/"
                 className="w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2"
+                onClick={handleLinkClick}
               >
                 Testosterone Therapy
               </Link>
               <Link
                 to="/hcg-therapy/"
                 className="w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2"
+                onClick={handleLinkClick}
               >
                 HCG Therapy
               </Link>
+
               <div className="w-full relative z-20">
                 <button
                   onClick={() => setOpenPeptideDropdown(!openPeptideDropdown)}
@@ -85,18 +96,21 @@ const Sidebar = ({ handleShowNav }) => {
                     <Link
                       to="/tesamorelin-therapy/"
                       className="block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-10 py-2"
+                      onClick={handleLinkClick}
                     >
                       Tesamorelin Therapy
                     </Link>
                     <Link
                       to="/sermorelin-therapy/"
                       className="text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-10 py-2"
+                      onClick={handleLinkClick}
                     >
                       Sermorelin Therapy
                     </Link>
                   </div>
                 )}
               </div>
+
               <div className="w-full relative z-10">
                 <button
                   onClick={() =>
@@ -111,12 +125,14 @@ const Sidebar = ({ handleShowNav }) => {
                     <Link
                       to="/semaglutide-therapy/"
                       className="w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6"
+                      onClick={handleLinkClick}
                     >
                       Semaglutide Therapy
                     </Link>
                     <Link
                       to="/tirzepatide-therapy/"
                       className="w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6"
+                      onClick={handleLinkClick}
                     >
                       Tirzepatide Therapy
                     </Link>
@@ -139,12 +155,14 @@ const Sidebar = ({ handleShowNav }) => {
               <Link
                 to="/new-patients"
                 className="w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2"
+                onClick={handleLinkClick}
               >
                 New Patient
               </Link>
               <Link
                 to="/trt-pep-refill-validation/"
                 className="w-full block text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300 px-6 py-2"
+                onClick={handleLinkClick}
               >
                 Existing Patient
               </Link>

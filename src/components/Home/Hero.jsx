@@ -9,7 +9,7 @@ const Hero = () => {
       className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-40 home-hero min-h-screen lg:h-[75vh]`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 h-full gap-x-6 gap-y-8">
-        <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center gap-6 lg:gap-10">
+        <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center items-center md:items-start text-center md:text-start pt-20 md:pt-0 gap-6 lg:gap-10">
           <h1 className="text-white text-4xl lg:text-8xl font-semibold tracking-tighter">
             Revitalize Your Health Online!
           </h1>
@@ -30,19 +30,21 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="col-span-1">
-          <div className="relative flex items-end w-[350px]">
-            <span className="text-white font-bold text-4xl absolute top-10 md:top-20 -left-2">
+
+        <div className="col-span-3 lg:col-span-1 w-full mx-auto">
+          <div className="relative flex items-end w-full md:w-[350px]">
+            <span className="text-white font-bold text-4xl absolute top-10 md:top-20 left-[20%] md:-left-2">
               $
             </span>
-            <h2 className="text-[120px] md:text-[200px] font-extrabold text-white mx-4 py-0">
+            <h2 className="text-[120px] md:text-[200px] font-extrabold text-white mx-auto md:mx-4 py-0">
               89
             </h2>
-            <span className="absolute md:bottom-20 text-white font-semibold text-lg right-24 bottom-12 md:right-0">
+            <span className="absolute right-2 md:bottom-20 text-white font-semibold text-lg lg:-right-1 bottom-12 md:right-0">
               .99/Month
             </span>
           </div>
-          <div className="flex flex-col items-start gap-3">
+
+          <div className="flex flex-col items-center md:items-start text-center md:text-start gap-3">
             <p className="text-white font-semibold">
               Comprehensive Testosterone Replacement Therapy
             </p>

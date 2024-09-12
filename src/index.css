@@ -47,12 +47,23 @@
 
 .home-hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  /* url('https://img.freepik.com/free-photo/team-young-specialist-doctors-standing-corridor-hospital_1303-21199.jpg?t=st=1717709765~exp=1717713365~hmac=6461ff55e2ba9e8322678bb43e435d6f1dd89b7a0de94ee822c9b0a48fe103e8&w=1060'); */
+    url("/home-hero-image.avif");
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  /* home-hero-mobile */
+  .home-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/home-hero-mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .swiper-horizontal {

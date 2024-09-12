@@ -4,9 +4,15 @@ import { IoCallSharp } from "react-icons/io5";
 import { HiBuildingOffice } from "react-icons/hi2";
 import { MdCopyright } from "react-icons/md";
 import { FiArrowUpRight } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const router = useNavigate();
+
+  const handleButtonClick = () => {
+    router.push("/target-page#enrollment-form");
+  };
+
   return (
     <footer className={`bg-color ${styles.paddingHorizontal} py-8 lg:py-12`}>
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-x-6 gap-y-10">
@@ -38,7 +44,7 @@ const Footer = () => {
           </p>
           <div>
             <Link
-              to="/trt-pep-refill-validation/"
+              to="/testosterone-replacement-therapy#enrollment-form"
               className="text-blue-950 bg-white px-4 py-2 text-sm font-semibold uppercase rounded-md flex items-center justify-center gap-1"
             >
               enroll now <FiArrowUpRight className="text-lg" />

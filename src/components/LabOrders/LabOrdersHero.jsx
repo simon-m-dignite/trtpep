@@ -4,7 +4,7 @@ import { styles } from "../../styles/styles";
 const LabOrdersHero = () => {
   return (
     <div
-      className={`lab-order-hero ${styles.paddingHorizontal} text-white flex flex-col items-center justify-center gap-6 text-center`}
+      className={`lab-order-hero ${styles.paddingHorizontal} text-white flex flex-col items-center justify-center gap-6 text-center pt-36`}
     >
       <h1 className="text-3xl md:text-5xl xl:text-6xl font-semibold">
         Order Labs
