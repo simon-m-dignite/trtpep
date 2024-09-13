@@ -6,11 +6,12 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
       <h6 className="text-gray-600 font-semibold text-sm">
         Bloodwork for Testosterone Replacement Therapy
       </h6>
+
       <div className="flex items-center gap-2">
         <input
           type="radio"
           name="labWorkDetailsTestosterone"
-          value={"250"}
+          value={"124.95"}
           checked={
             formData.labWorkDetails.bloodWorkForTestosterone?.price === 124.95
           }
@@ -33,7 +34,7 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
         <input
           type="radio"
           name="labWorkDetailsTestosterone"
-          value={0}
+          value={"0"}
           checked={
             formData.labWorkDetails.bloodWorkForTestosterone?.price === 0
           }

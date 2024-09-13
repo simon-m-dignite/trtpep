@@ -13,9 +13,6 @@ import { useNavigate } from "react-router-dom";
 import { states } from "../../constants/states";
 
 const LabOrdersForm = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const [newPatient, setNewPatient] = useState("");
-  const [oldPatient, setOldPatient] = useState("");
   const [errors, setErrors] = useState({});
 
   const stripe = useStripe();
@@ -65,18 +62,29 @@ const LabOrdersForm = () => {
     amount,
   } = data;
 
-  // const handleChange = (e) => {
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  //   setData((values) => ({ ...values, [name]: value }));
-  // };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const calculateAge = (dob) => {
+    const today = new Date();
+    const birthDate = new Date(dob);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    // Adjust age if the birthday hasn't occurred yet this year
+    if (
+      monthDifference < 0 ||
+      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
   };
 
   const validateForm = () => {
@@ -109,10 +117,19 @@ const LabOrdersForm = () => {
       errors.phone = "Phone number is required";
       valid = false;
     }
+    // dob
     if (!data.date_of_birth) {
       errors.date_of_birth = "Date of birth is required";
       valid = false;
+    } else {
+      const age = calculateAge(data.date_of_birth);
+      if (age < 24) {
+        errors.date_of_birth =
+          "Patients under 24 are not eligible for treatment";
+        valid = false;
+      }
     }
+
     if (!data.shippingState) {
       errors.shippingState = "Shipping state is required";
       valid = false;
@@ -215,9 +232,6 @@ const LabOrdersForm = () => {
               console.log(error);
               setLoading(false);
             });
-
-          // console.log("new patient >> ", newPatient);
-          // console.log("old patient >> ", oldPatient);
         } catch (error) {
           console.log("lab order form error >> ", error);
           setLoading(false);
@@ -513,77 +527,6 @@ const LabOrdersForm = () => {
         Payment Info <span className="text-red-500">*</span>
       </p>
       <CardElement />
-      {/* <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="flex flex-col items-start gap-2">
-          <label htmlFor="cardholderName" className="text-gray-500 text-sm">
-            Cardholder Name
-          </label>
-          <input
-            type="text"
-            id="cardholderName"
-            name="cardholderName"
-            value={data.cardholderName}
-            onChange={handleChange}
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          />
-          {errors.cardholderName && (
-            <p className="text-red-500 text-sm">{errors.cardholderName}</p>
-          )}
-          <p className="text-xs text-gray-600">
-            Please make sure to type your name as listed on your credit card in
-            the Cardholder Name field.
-          </p>
-        </div>
-        <div className="flex flex-col items-start gap-2">
-          <label htmlFor="cardNumber" className="text-gray-500 text-sm">
-            Card Number
-          </label>
-          <input
-            type="text"
-            id="cardNumber"
-            name="cardNumber"
-            value={data.cardNumber}
-            onChange={handleChange}
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          />
-          {errors.cardNumber && (
-            <p className="text-red-500 text-sm">{errors.cardNumber}</p>
-          )}
-        </div>
-      </div> */}
-      {/* <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
-        <div>
-          <label htmlFor="cardExpirationDate" className="text-gray-500 text-sm">
-            Expiration Date
-          </label>
-          <input
-            type="date"
-            name="cardExpirationDate"
-            id="cardExpirationDate"
-            value={data.cardExpirationDate}
-            onChange={handleChange}
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          />
-
-          {errors.cardExpirationDate && (
-            <p className="text-red-500 text-sm">{errors.cardExpirationDate}</p>
-          )}
-        </div>
-        <div>
-          <label htmlFor="cvc" className="text-gray-500 text-sm">
-            CVC
-          </label>
-          <input
-            type="text"
-            id="cvc"
-            name="cvc"
-            value={data.cvc}
-            onChange={handleChange}
-            className="w-full text-sm border py-2 rounded px-2 outline-none"
-          />
-          {errors.cvc && <p className="text-red-500 text-sm">{errors.cvc}</p>}
-        </div>
-      </div> */}
       <div className="w-full flex flex-col items-start gap-1 mt-4">
         <p className="text-sm font-semibold text-gray-500 mb-2">
           Authorization <span className="text-red-500">*</span>

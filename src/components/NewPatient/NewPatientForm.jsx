@@ -59,12 +59,10 @@ function NewPatientForm() {
   const calculateTotalPrice = (formData) => {
     let totalPrice = 0;
 
-    // Sum prices from therapyDetails
     Object.values(formData.therapyDetails).forEach((item) => {
       totalPrice += item?.price || 0;
     });
 
-    // Sum prices from labWorkDetails
     Object.values(formData.labWorkDetails).forEach((item) => {
       totalPrice += item?.price || 0;
     });
@@ -137,16 +135,7 @@ function NewPatientForm() {
         id: token.id,
         amount: calculateTotalPrice(formData),
       };
-      // const response = await axios.post(
-      //   "http://localhost:8000/api/new-patient",
-      //   {
-      //     data: formData,
-      //     id: token.id,
-      //     amount: calculateTotalPrice(formData),
-      //   }
-      // );
 
-      // Log data to verify its structure
       console.log("Data being sent:", JSON.stringify(requestData, null, 2));
 
       const response = await fetch(

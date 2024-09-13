@@ -49,6 +49,13 @@ const Sidebar = ({ handleShowNav }) => {
         >
           faq
         </Link>
+        <Link
+          to="/lab-orders"
+          className="font-bold text-base uppercase border-b py-3 w-full block"
+          onClick={handleLinkClick}
+        >
+          Labs
+        </Link>
 
         <div className="w-full text-start">
           <button
@@ -59,13 +66,7 @@ const Sidebar = ({ handleShowNav }) => {
             <MdKeyboardArrowDown className="text-xl" />
           </button>
         </div>
-        <Link
-          to="/lab-orders"
-          className="font-bold text-base uppercase border-b py-3 w-full block"
-          onClick={handleLinkClick}
-        >
-          Labs
-        </Link>
+
         <div className="w-full">
           {isDropdownOpen && (
             <div className="rounded-md bg-white flex flex-col items-start">

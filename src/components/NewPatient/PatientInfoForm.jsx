@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PatientInfoForm = ({ formData, setFormData }) => {
+  const [errors, setErrors] = useState({});
   // Handler for input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -11,6 +12,21 @@ const PatientInfoForm = ({ formData, setFormData }) => {
         [name]: value,
       },
     }));
+
+    if (name === "dob") {
+      const age = calculateAge(value);
+      if (age < 24) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          dob: "Patients under 24 are not eligible for treatment",
+        }));
+      } else {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          dob: "",
+        }));
+      }
+    }
   };
 
   return (
