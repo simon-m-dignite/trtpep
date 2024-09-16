@@ -24,7 +24,7 @@ const Hero = () => {
           <div>
             <Link
               to="/testosterone-replacement-therapy#enrollment-form"
-              className="bg-color flex items-center justify-center  w-44 gap-1 px-8 py-4 uppercase text-sm font-medium rounded-full text-white"
+              className="bg-color flex items-center justify-center gap-1 px-8 py-5 uppercase text-sm font-medium rounded-full text-white"
             >
               enroll now <RiArrowRightUpLine className="text-lg" />
             </Link>
