@@ -1,5 +1,3 @@
-// src/components/NewPatientForm.js
-
 import React, { useState, useEffect } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -8,9 +6,7 @@ import LabWorkForm from "./LabWorkForm";
 import PatientInfoForm from "./PatientInfoForm";
 import ShippingInfoForm from "./ShippingInfoForm";
 import PaymentInfoForm from "./PaymentInfoForm";
-import axios from "axios";
 import { styles } from "../../styles/styles";
-import { useNavigate } from "react-router-dom";
 
 // Make sure to replace with your own Stripe publishable key
 const stripePromise = loadStripe(
@@ -20,7 +16,6 @@ const stripePromise = loadStripe(
 function NewPatientForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [totalAmount, setTotalAmount] = useState(0);
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     therapyDetails: {
       testosterone: "",
@@ -71,10 +66,6 @@ function NewPatientForm() {
   };
 
   const [paymentStatus, setPaymentStatus] = useState("");
-
-  const handleChange = (input, e) => {
-    setFormData((values) => ({ ...values, [input]: e.target.value }));
-  };
 
   const handleRadioChange = (category, title, price) => {
     setFormData((prevState) => ({
@@ -231,13 +222,12 @@ function NewPatientForm() {
     console.log("formData >> ", formData);
     const totalPrice = calculateTotalPrice(formData);
     setTotalAmount(calculateTotalPrice(formData));
-    console.log("Total Price:", totalPrice); // Output: Total Price: 1784
   }, [formData]);
 
   return (
     <Elements stripe={stripePromise}>
       <form
-        onSubmit={(e) => e.preventDefault()} // Prevent default form submission
+        onSubmit={(e) => e.preventDefault()}
         className={`multi-step-form w-full ${styles.paddingHorizontal} py-12 flex flex-col gap-6 lg:w-[85%] xl:w-[85%] mx-auto`}
       >
         <h2 className="text-xs text-gray-500">
@@ -290,7 +280,7 @@ function NewPatientForm() {
               Back
             </button>
           )}
-          {currentStep === steps.length ? null : ( // </button> //   Submit // > //   className="bg-color text-white rounded-md text-sm px-4 py-2" //   onClick={() => handleSubmit()} // Trigger submit with Stripe token //   type="submit" // <button
+          {currentStep === steps.length ? null : (
             <button
               type="button"
               onClick={handleNext}

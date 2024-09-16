@@ -10,10 +10,11 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
       <div className="flex items-center gap-2">
         <input
           type="radio"
-          name="labWorkDetailsTestosterone"
+          name="bloodWorkForTestosterone"
           value={"124.95"}
           checked={
-            formData.labWorkDetails.bloodWorkForTestosterone?.price === 124.95
+            formData.labWorkDetails.bloodWorkForTestosterone?.title ===
+            "Total Testosterone"
           }
           onChange={() =>
             handleRadioChange(
@@ -33,10 +34,11 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
       <div className="flex items-center gap-2">
         <input
           type="radio"
-          name="labWorkDetailsTestosterone"
-          value={"0"}
+          name="bloodWorkForTestosterone"
+          value={"upload"}
           checked={
-            formData.labWorkDetails.bloodWorkForTestosterone?.price === 0
+            formData.labWorkDetails.bloodWorkForTestosterone?.title ===
+            "I will upload my own labs"
           }
           onChange={() =>
             handleRadioChange(
@@ -48,21 +50,19 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
           id="bloodWorkUpload"
           className="w-5 h-5"
         />
-        <div>
-          <label htmlFor="bloodWorkUpload" className="text-sm mt-1">
-            I will upload my own labs (Must include Total Testosterone, CBC,
-            CMP. Also, PSA if over 40)
-          </label>
-        </div>
+        <label htmlFor="bloodWorkUpload" className="text-sm mt-1">
+          I will upload my own labs (Must include Total Testosterone, CBC, CMP.
+          Also, PSA if over 40)
+        </label>
       </div>
 
       <div className="flex items-center gap-2">
         <input
           type="radio"
-          name="labWorkDetailsTestosterone"
-          value={0}
+          name="bloodWorkForTestosterone"
+          value={"na"}
           checked={
-            formData.labWorkDetails.bloodWorkForTestosterone?.price === 0
+            formData.labWorkDetails.bloodWorkForTestosterone?.title === "N/A"
           }
           onChange={() =>
             handleRadioChange("bloodWorkForTestosterone", "N/A", 0)
@@ -96,7 +96,6 @@ const LabWorkForm = ({ formData, setFormData, handleRadioChange }) => {
           }
           className="p-2 lg:w-[50%] border outline-none text-sm"
         >
-          <option value="" selected></option>
           <option value="Facebook">Facebook</option>
           <option value="Instagram">Instagram</option>
           <option value="Twitter">Twitter</option>

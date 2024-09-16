@@ -6,14 +6,14 @@ import { RiArrowRightUpLine } from "react-icons/ri";
 const Hero = () => {
   return (
     <main
-      className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-40 home-hero min-h-screen lg:h-[75vh]`}
+      className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-32 home-hero min-h-screen lg:h-[75vh]`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 h-full gap-x-6 gap-y-8">
         <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center items-center md:items-start text-center md:text-start pt-20 md:pt-0 gap-6 lg:gap-10">
-          <h1 className="text-white text-4xl lg:text-8xl font-semibold tracking-tighter">
+          <h1 className="text-white text-4xl xl:text-7xl font-semibold tracking-tighter">
             Revitalize Your Health Online!
           </h1>
-          <h3 className="text-white font-medium text-lg md:text-base lg:text-2xl">
+          <h3 className="text-white font-medium text-lg md:text-base lg:text-xl">
             Unlock affordable solutions for low testosterone and anti-aging
             without leaving your home. Get expert-prescribed medications
             delivered straight to your doorstep!
