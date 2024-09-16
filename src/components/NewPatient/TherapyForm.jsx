@@ -64,14 +64,16 @@ const TherapyForm = ({ formData, setFormData, handleRadioChange }) => {
           type="radio"
           name="peptide"
           value={"699"}
+          disabled
           checked={formData.therapyDetails.peptide?.price === 699}
           onChange={() => handleRadioChange("peptide", "Tesamorelin", 699)}
           id=""
           className="w-5 h-5"
         />
-        <label htmlFor="" className="text-sm mt-1">
-          $699.00 - Tesamorelin (3 Month Supply @ $233/month)
+        <label htmlFor="" className="text-sm mt-1 line-through">
+          $699.00 - Tesamorelin (3 Month Supply @ $233/month){" "}
         </label>
+        <span className="text-sm font-medium text-red-600">Out of stock</span>
       </div>
       <div className="flex items-center gap-2">
         <input

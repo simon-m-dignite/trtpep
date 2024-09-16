@@ -264,6 +264,11 @@ const ShippingInfoForm = ({ formData, setFormData }) => {
           </div>
         </>
       ) : null}
+      <div className="">
+        <p className="mt-4 text-red-600 text-sm font-medium">
+          Delivery charges will be applied $35.
+        </p>
+      </div>
     </div>
   );
 };
