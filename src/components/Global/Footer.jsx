@@ -56,8 +56,10 @@ const Footer = () => {
       <div className="w-full pt-4">
         <p className="text-xs text-white flex items-center gap-1">
           <MdCopyright className="text-sm" />
-          TRTPEP. All rights reserved | Terms & Conditions | Privacy Policy |
-          Cancellation Policy
+          TRTPEP. All rights reserved |{" "}
+          <Link to={"/terms-and-conditoins"}>Terms & Conditions</Link> |{" "}
+          <Link to={"/privacy-policy"}>Privacy Policy</Link> |{" "}
+          <Link to={"/cancelation-policy"}>Cancellation Policy </Link>
         </p>
       </div>
     </footer>

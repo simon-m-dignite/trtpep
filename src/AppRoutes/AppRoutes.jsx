@@ -34,6 +34,18 @@ const PaymentSuccessPage = lazy(() =>
   import("../pages/success/PaymentSuccessPage")
 );
 
+const TermsAndConditoins = lazy(() =>
+  import("../pages/PrivacyPolicy/TermsAndConditions")
+);
+
+const PrivacyPolicy = lazy(() =>
+  import("../pages/PrivacyPolicy/PrivacyPolicy")
+);
+
+const CancelationPolicy = lazy(() =>
+  import("../pages/PrivacyPolicy/CancelationPolicy")
+);
+
 export const routes = [
   {
     title: "Home Page",
@@ -119,5 +131,20 @@ export const routes = [
     title: "Lab Order Success Page",
     url: "/payment-success/",
     page: <Layout pages={<PaymentSuccessPage />} />,
+  },
+  {
+    title: "Terms And Conditions Page",
+    url: "/terms-and-conditoins",
+    page: <Layout pages={<TermsAndConditoins />} />,
+  },
+  {
+    title: "Privacy Policy Page",
+    url: "/privacy-policy",
+    page: <Layout pages={<PrivacyPolicy />} />,
+  },
+  {
+    title: "Cancelation Policy Page",
+    url: "/cancelation-policy",
+    page: <Layout pages={<CancelationPolicy />} />,
   },
 ];
