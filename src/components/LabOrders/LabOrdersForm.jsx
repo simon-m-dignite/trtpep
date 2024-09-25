@@ -238,24 +238,21 @@ const LabOrdersForm = () => {
             state: "",
           });
 
-          // Redirect to success page
           window.location.href = "https://azalea-aesthetics.square.site/";
         } catch (error) {
           console.log("Error from server >> ", error);
-          // Handle server errors, differentiate between status codes if needed
+          alert("Something went wrong. Payment could not be processed.");
+
           if (error.response) {
-            // Server responded with a status other than 200 range
             setPaymentStatus(
               "Payment failed: " + error.response.data.message ||
                 "Please try again later."
             );
           } else if (error.request) {
-            // Request made but no response received
             setPaymentStatus(
               "No response from the server. Please try again later."
             );
           } else {
-            // Something happened in setting up the request
             setPaymentStatus("Error occurred: " + error.message);
           }
           setLoading(false);
