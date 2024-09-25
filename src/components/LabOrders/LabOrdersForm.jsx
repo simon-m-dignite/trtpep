@@ -396,9 +396,9 @@ const LabOrdersForm = () => {
             onChange={handleChange}
             className="w-full text-sm border py-2 rounded px-2 outline-none"
           />
-          <p className="text-[13px] text-red-500">
+          {/* <p className="text-[13px] text-red-500">
             Patients under 24 not eligible for treatment
-          </p>
+          </p> */}
           {errors.date_of_birth && (
             <p className="text-red-500 text-sm">{errors.date_of_birth}</p>
           )}
