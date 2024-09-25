@@ -18,6 +18,7 @@ const LabOrdersForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const [paymentStatus, setPaymentStatus] = useState("");
+  console.log("paymentStatus >>", paymentStatus);
 
   const [paymentSuccessfull, setPaymentSuccessfull] = useState(false);
 
@@ -32,7 +33,7 @@ const LabOrdersForm = () => {
     billingAddressLine2: "",
     city: "",
     zipCode: "",
-    amount: "125",
+    amount: "124.95",
     state: "",
   });
   const [isNewPatient, setIsNewPatient] = useState(null);
@@ -174,25 +175,35 @@ const LabOrdersForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // captchaRef.current.reset();
-    // const inputVal = await e.target[0].value;
-
     if (validateForm()) {
       if (!stripe || !elements) {
+        setPaymentStatus("Stripe.js has not loaded yet. Please try again.");
         return;
       }
       setLoading(true);
       const cardElement = elements.getElement(CardElement);
 
-      const { error, token } = await stripe.createToken(cardElement);
+      // Create a token using the card element
+      const { error: stripeError, token } = await stripe.createToken(
+        cardElement
+      );
       console.log("token >> ", token);
-      // https://backend.trtpep.com
+
+      // Check for Stripe errors
+      if (stripeError) {
+        setPaymentStatus("Error processing payment: " + stripeError.message);
+        setLoading(false);
+        console.log("Stripe error >> ", stripeError);
+        return;
+      }
+
       if (token?.id) {
         try {
-          axios
-            .post("http://localhost:8000/api/create-payment-intent", {
+          const response = await axios.post(
+            "https://backend.trtpep.com/api/create-payment-intent",
+            {
               data: data,
-              id: token?.id,
+              id: token.id,
               amount: data.amount,
               firstName,
               lastName,
@@ -205,43 +216,54 @@ const LabOrdersForm = () => {
               city,
               zipCode,
               isNewPatient,
-              // inputVal,
               captcha,
-            })
-            .then((response) => {
-              console.log(response.data);
-              setLoading(false);
-              setPaymentStatus("Payment successfull.");
-              setPaymentSuccessfull(true);
-              setData({
-                firstName: "",
-                lastName: "",
-                email: "",
-                phone: "",
-                date_of_birth: "",
-                shippingState: "",
-                billingAddress: "",
-                billingAddressLine2: "",
-                city: "",
-                zipCode: "",
-                amount: "125",
-                state: "",
-              });
-              window.location.href = "https://azalea-aesthetics.square.site/";
-            })
-            .catch((error) => {
-              console.log(error);
-              setLoading(false);
-            });
+            }
+          );
+
+          console.log(response.data);
+          setPaymentStatus("Payment successful.");
+          setPaymentSuccessfull(true);
+          setData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            date_of_birth: "",
+            shippingState: "",
+            billingAddress: "",
+            billingAddressLine2: "",
+            city: "",
+            zipCode: "",
+            amount: "125",
+            state: "",
+          });
+
+          // Redirect to success page
+          window.location.href = "https://azalea-aesthetics.square.site/";
         } catch (error) {
-          console.log("lab order form error >> ", error);
+          console.log("Error from server >> ", error);
+          // Handle server errors, differentiate between status codes if needed
+          if (error.response) {
+            // Server responded with a status other than 200 range
+            setPaymentStatus(
+              "Payment failed: " + error.response.data.message ||
+                "Please try again later."
+            );
+          } else if (error.request) {
+            // Request made but no response received
+            setPaymentStatus(
+              "No response from the server. Please try again later."
+            );
+          } else {
+            // Something happened in setting up the request
+            setPaymentStatus("Error occurred: " + error.message);
+          }
           setLoading(false);
         }
       } else {
         setPaymentStatus("Payment failed. Please try again.");
         setLoading(false);
-
-        console.log("Stripe error >> ", error);
+        console.log("Token generation failed.");
       }
     }
   };

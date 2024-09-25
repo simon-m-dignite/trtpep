@@ -9,12 +9,12 @@ import PaymentInfoForm from "./PaymentInfoForm";
 import { styles } from "../../styles/styles";
 
 // Make sure to replace with your own Stripe publishable key
-// const stripePromise = loadStripe(
-//   "pk_live_51PgBFIFEWeqdZ67FPXnja4B7NRo3wSz2jLtCbrpQFjrS2xFbNFYBwqCaTmTa7SK5UVREhGtsCgCTjhhvHIz9csxY005hw9MlbV"
-// );
 const stripePromise = loadStripe(
   "pk_live_51PgBFIFEWeqdZ67FPXnja4B7NRo3wSz2jLtCbrpQFjrS2xFbNFYBwqCaTmTa7SK5UVREhGtsCgCTjhhvHIz9csxY005hw9MlbV"
 );
+// const stripePromise = loadStripe(
+//   "pk_test_51PiQ2kRv1Ud7Q4L2gaztmYGBANqXoUjX6VPvEffqs2AExjN0wcRK8pxRuS1DZ15B2CaRm7gEJ6YDt3eGyDSoJF9X00AxzW8Bxr"
+// );
 
 function NewPatientForm() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -132,13 +132,16 @@ function NewPatientForm() {
 
       console.log("Data being sent:", JSON.stringify(requestData, null, 2));
       // https://backend.trtpep.com
-      const response = await fetch("http://localhost:8000/api/new-patient", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      });
+      const response = await fetch(
+        "https://backend.trtpep.com/api/new-patient",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      );
       const resp = await response.json();
       console.log("Payment successful", resp);
       // alert(resp.message);
