@@ -185,11 +185,12 @@ const LabOrdersForm = () => {
       const cardElement = elements.getElement(CardElement);
 
       const { error, token } = await stripe.createToken(cardElement);
-
+      console.log("token >> ", token);
+      // https://backend.trtpep.com
       if (token?.id) {
         try {
           axios
-            .post("https://backend.trtpep.com/api/create-payment-intent", {
+            .post("http://localhost:8000/api/create-payment-intent", {
               data: data,
               id: token?.id,
               amount: data.amount,
