@@ -15,7 +15,7 @@ const NewPatientSuccessPage = () => {
   useEffect(() => {
     if (PatientId) {
       axios
-        .post("http://localhost:8000/patient/update-status", {
+        .post("https://backend.trtpep.com/api/patient/update-status", {
           id: PatientId,
         })
         .then((response) => {

@@ -203,7 +203,7 @@ const LabOrdersForm = () => {
       // Send the token and form data to the backend to create the payment intent
       // "https://backend.trtpep.com/api/create-payment-intent"
       const response = await axios.post(
-        "http://localhost:8000/api/create-payment-intent",
+        "https://backend.trtpep.com/api/create-payment-intent",
         {
           data,
           // id: token.id,

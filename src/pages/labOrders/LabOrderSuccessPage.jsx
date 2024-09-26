@@ -14,7 +14,7 @@ const LabOrderSuccessPage = () => {
   useEffect(() => {
     if (LabOrderId) {
       axios
-        .post("http://localhost:8000/lab/update-status", {
+        .post("https://backend.trtpep.com/api/lab/update-status", {
           id: LabOrderId,
         })
         .then((response) => {

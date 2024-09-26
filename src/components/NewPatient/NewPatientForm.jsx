@@ -133,13 +133,16 @@ function NewPatientForm() {
       console.log("Data being sent:", JSON.stringify(requestData, null, 2));
       // https://backend.trtpep.com
       // "https://backend.trtpep.com/api/new-patient"
-      const response = await fetch("http://localhost:8000/api/new-patient", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      });
+      const response = await fetch(
+        "https://backend.trtpep.com/api/new-patient",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      );
       const resp = await response.json();
       console.log("Payment successful", resp);
       Cookies.set("patientId", resp?.data?._id);
