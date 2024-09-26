@@ -215,7 +215,7 @@ const LabOrdersForm = () => {
           date_of_birth: data.date_of_birth,
           shippingState: data.shippingState,
           billingAddress: data.billingAddress,
-          billingAddressLine2: data.billingAddressLine2,
+          billingAddressLine: data.billingAddressLine2,
           city: data.city,
           zipCode: data.zipCode,
           isNewPatient,
