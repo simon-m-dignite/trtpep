@@ -225,7 +225,7 @@ const LabOrdersForm = () => {
 
       if (response?.data?.success) {
         console.log(response);
-        Cookies.set("labOrderId", resp?.data?.data?._id);
+        Cookies.set("labOrderId", response?.data?.data?._id);
         window.location.href = response?.data?.url;
         // Confirm the payment on the client side
         // const { clientSecret } = response.data;
