@@ -1,6 +1,10 @@
 import { lazy } from "react";
 import Layout from "../components/Global/Layout";
 import EnrollmentThankYouPage from "../pages/thankyou/EnrollmentThankYouPage";
+import NewPatientSuccessPage from "../pages/newPatient/NewPatientSuccessPage";
+import NewPatientFailure from "../pages/newPatient/NewPatientFailure";
+import LabOrderFailurePage from "../pages/labOrders/LabOrderFailurePage";
+import LabOrderSuccessPage from "../pages/labOrders/LabOrderSuccessPage";
 
 const NewPatient = lazy(() => import("../pages/newPatient/NewPatient"));
 const ContactUs = lazy(() => import("../pages/aboutus/ContactUs"));
@@ -146,5 +150,25 @@ export const routes = [
     title: "Cancelation Policy Page",
     url: "/cancelation-policy",
     page: <Layout pages={<CancelationPolicy />} />,
+  },
+  {
+    title: "New Patient Success Page",
+    url: "/new-patient/success",
+    page: <Layout pages={<NewPatientSuccessPage />} />,
+  },
+  {
+    title: "New Patient Failure Page",
+    url: "/new-patient/failed",
+    page: <Layout pages={<NewPatientFailure />} />,
+  },
+  {
+    title: "Lab Order Success Page",
+    url: "/lab-order/success",
+    page: <Layout pages={<LabOrderSuccessPage />} />,
+  },
+  {
+    title: "Lab Order Failure Page",
+    url: "/lab-order/failed",
+    page: <Layout pages={<LabOrderFailurePage />} />,
   },
 ];

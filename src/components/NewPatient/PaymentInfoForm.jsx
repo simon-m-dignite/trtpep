@@ -62,33 +62,29 @@ const PaymentInfoForm = ({ onSubmit, totalAmount }) => {
     e.preventDefault();
     setLoading(true);
 
-    if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      setLoading(false);
-      return;
-    }
+    // if (!stripe || !elements) {
+    //   // Stripe.js has not yet loaded.
+    //   setLoading(false);
+    //   return;
+    // }
 
-    const cardElement = elements.getElement(CardElement);
+    // const cardElement = elements.getElement(CardElement);
 
-    const { error, token } = await stripe.createToken(cardElement);
+    // const { error, token } = await stripe.createToken(cardElement);
 
-    if (error) {
-      console.log("[error]", error);
-      setLoading(false);
-      return;
-    }
+    // if (error) {
+    //   console.log("[error]", error);
+    //   setLoading(false);
+    //   return;
+    // }
 
     // Pass the token to the parent component for further processing
-    const submitted = onSubmit(token);
-    if (submitted) {
-      setLoading(false);
-      navigate("/payment-success/");
-    }
+    onSubmit();
   };
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-4">Payment Information</h2>
+      <h2 className="text-lg font-semibold mb-4">Proceed to Payment</h2>
       <div>
         <div className="mb-4">
           <p className="font-semibold text-base text-[#c00000]">Total</p>
@@ -96,14 +92,14 @@ const PaymentInfoForm = ({ onSubmit, totalAmount }) => {
         </div>{" "}
         <div className="flex flex-col items-start gap-1 mt-4">
           {" "}
-          <p className="text-sm font-semibold text-gray-500 mb-2">
+          {/* <p className="text-sm font-semibold text-gray-500 mb-2">
             Payment Info <span className="text-red-500">*</span>{" "}
-          </p>
-          <CardElement className="mb-4 w-full" />
+          </p> */}
+          {/* <CardElement className="mb-4 w-full" /> */}
           <button
             type="button"
             onClick={handleSubmit}
-            disabled={!stripe}
+            // disabled={!stripe}
             className="bg-color  text-white rounded-md text-sm px-4 py-2"
           >
             {loading ? "Loading..." : "Pay"}

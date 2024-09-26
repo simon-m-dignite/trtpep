@@ -7,6 +7,7 @@ import PatientInfoForm from "./PatientInfoForm";
 import ShippingInfoForm from "./ShippingInfoForm";
 import PaymentInfoForm from "./PaymentInfoForm";
 import { styles } from "../../styles/styles";
+import Cookies from "js-cookie";
 
 // Make sure to replace with your own Stripe publishable key
 const stripePromise = loadStripe(
@@ -122,31 +123,28 @@ function NewPatientForm() {
     }));
   };
 
-  const handleSubmit = async (token) => {
+  const handleSubmit = async () => {
     try {
       const requestData = {
         formData,
-        id: token.id,
         amount: calculateTotalPrice(formData),
       };
 
       console.log("Data being sent:", JSON.stringify(requestData, null, 2));
       // https://backend.trtpep.com
-      const response = await fetch(
-        "https://backend.trtpep.com/api/new-patient",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        }
-      );
+      // "https://backend.trtpep.com/api/new-patient"
+      const response = await fetch("http://localhost:8000/api/new-patient", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
       const resp = await response.json();
       console.log("Payment successful", resp);
+      Cookies.set("patientId", resp?.data?._id);
       // alert(resp.message);
-      window.location.href = "https://azalea-aesthetics.square.site/";
-      return true;
+      window.location.href = resp?.url;
     } catch (error) {
       setPaymentStatus("Payment failed. Please try again.");
       console.log("Payment error >> ", error);
