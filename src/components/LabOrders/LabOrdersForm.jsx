@@ -176,94 +176,125 @@ const LabOrdersForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      if (!stripe || !elements) {
-        setPaymentStatus("Stripe.js has not loaded yet. Please try again.");
-        return;
-      }
-      setLoading(true);
-      const cardElement = elements.getElement(CardElement);
+    if (!validateForm()) return; // Return early if validation fails
 
+    if (!stripe || !elements) {
+      setPaymentStatus("Stripe.js has not loaded yet. Please try again.");
+      return;
+    }
+
+    setLoading(true);
+    const cardElement = elements.getElement(CardElement);
+
+    try {
+      // Create a payment token using the card element
       const { error: stripeError, token } = await stripe.createToken(
         cardElement
       );
-      console.log("token >> ", token);
 
-      // Check for Stripe errors
-      if (stripeError) {
-        setPaymentStatus("Error processing payment: " + stripeError.message);
+      if (!token?.id) {
+        // If token creation fails
+        setPaymentStatus("Payment failed. Please try again.");
         setLoading(false);
-        console.log("Stripe error >> ", stripeError);
         return;
       }
 
-      if (token?.id) {
-        try {
-          // https://backend.trtpep.com
-          const response = await axios.post(
-            "https://backend.trtpep.com/api/create-payment-intent",
-            {
-              data: data,
-              id: token.id,
-              amount: data.amount,
-              firstName,
-              lastName,
-              email,
-              phone,
-              date_of_birth,
-              shippingState,
-              billingAddress,
-              billingAddressLine2,
-              city,
-              zipCode,
-              isNewPatient,
-              captcha,
-            }
-          );
-
-          console.log(response.data);
-          setPaymentStatus("Payment successful.");
-          setPaymentSuccessfull(true);
-          setData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            date_of_birth: "",
-            shippingState: "",
-            billingAddress: "",
-            billingAddressLine2: "",
-            city: "",
-            zipCode: "",
-            amount: "125",
-            state: "",
-          });
-
-          window.location.href = "https://azalea-aesthetics.square.site/";
-        } catch (error) {
-          console.log("Error from server >> ", error);
-          alert("Something went wrong. Payment could not be processed.");
-
-          if (error.response) {
-            setPaymentStatus(
-              "Payment failed: " + error.response.data.message ||
-                "Please try again later."
-            );
-          } else if (error.request) {
-            setPaymentStatus(
-              "No response from the server. Please try again later."
-            );
-          } else {
-            setPaymentStatus("Error occurred: " + error.message);
-          }
-          setLoading(false);
+      // Send the token and form data to the backend to create the payment intent
+      const response = await axios.post(
+        "https://backend.trtpep.com/api/create-payment-intent",
+        {
+          data,
+          id: token.id,
+          amount: data.amount,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          date_of_birth: data.date_of_birth,
+          shippingState: data.shippingState,
+          billingAddress: data.billingAddress,
+          billingAddressLine2: data.billingAddressLine2,
+          city: data.city,
+          zipCode: data.zipCode,
+          isNewPatient,
+          captcha,
         }
-      } else {
-        setPaymentStatus("Payment failed. Please try again.");
-        setLoading(false);
-        console.log("Token generation failed.");
+      );
+
+      if (response?.data?.success) {
+        // Confirm the payment on the client side
+        const { clientSecret } = response.data;
+        const { error, paymentIntent } = await stripe.confirmCardPayment(
+          clientSecret,
+          {
+            payment_method: {
+              card: cardElement,
+            },
+          }
+        );
+
+        if (error) {
+          console.error("[Payment Error]", error);
+          setPaymentStatus("Payment failed. Please try again.");
+        } else if (paymentIntent?.status === "requires_action") {
+          // Handle 3D Secure authentication if required
+          const { error: confirmError, paymentIntent: confirmedPaymentIntent } =
+            await stripe.confirmCardPayment(clientSecret);
+
+          if (confirmError) {
+            console.error("[3D Secure Error]", confirmError);
+            setPaymentStatus(
+              "3D Secure authentication failed. Please try again."
+            );
+          } else if (confirmedPaymentIntent?.status === "succeeded") {
+            // 3D Secure succeeded
+            handlePaymentSuccess();
+          }
+        } else if (paymentIntent?.status === "succeeded") {
+          // Payment succeeded without requiring further action
+          handlePaymentSuccess();
+        }
       }
+    } catch (error) {
+      console.error("Error from server >> ", error);
+
+      if (error.response) {
+        setPaymentStatus(
+          "Payment failed: " + error.response.data.message ||
+            "Please try again later."
+        );
+      } else if (error.request) {
+        setPaymentStatus(
+          "No response from the server. Please try again later."
+        );
+      } else {
+        setPaymentStatus("Error occurred: " + error.message);
+      }
+    } finally {
+      setLoading(false);
     }
+  };
+
+  // Helper function to handle payment success
+  const handlePaymentSuccess = () => {
+    setPaymentStatus("Payment succeeded!");
+    setPaymentSuccessful(true);
+
+    // Reset the form fields after successful payment
+    setData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      date_of_birth: "",
+      shippingState: "",
+      billingAddress: "",
+      billingAddressLine2: "",
+      city: "",
+      zipCode: "",
+      amount: "125",
+      state: "",
+    });
   };
 
   return (
