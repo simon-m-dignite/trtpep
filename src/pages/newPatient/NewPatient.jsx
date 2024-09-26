@@ -11,16 +11,16 @@ const NewPatient = () => {
   //   "pk_test_51PiQ2kRv1Ud7Q4L2gaztmYGBANqXoUjX6VPvEffqs2AExjN0wcRK8pxRuS1DZ15B2CaRm7gEJ6YDt3eGyDSoJF9X00AxzW8Bxr"
   // );
   return (
-    <Elements stripe={stripePromise}>
-      <div className="w-full">
-        <div className="bg-gray-800 new-patient-hero w-full h-[50vh] flex items-center justify-center pt-20 text-center">
-          <h1 className="uppercase text-4xl font-bold text-white">
-            NEW PATIENT PAYMENT FORM
-          </h1>
-        </div>
-        <NewPatientForm />
+    // <Elements stripe={stripePromise}>
+    <div className="w-full">
+      <div className="bg-gray-800 new-patient-hero w-full h-[50vh] flex items-center justify-center pt-20 text-center">
+        <h1 className="uppercase text-4xl font-bold text-white">
+          NEW PATIENT PAYMENT FORM
+        </h1>
       </div>
-    </Elements>
+      <NewPatientForm />
+    </div>
+    // </Elements>
   );
 };
 

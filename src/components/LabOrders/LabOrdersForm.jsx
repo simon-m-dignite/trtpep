@@ -183,7 +183,6 @@ const LabOrdersForm = () => {
       setLoading(true);
       const cardElement = elements.getElement(CardElement);
 
-      // Create a token using the card element
       const { error: stripeError, token } = await stripe.createToken(
         cardElement
       );
@@ -199,6 +198,7 @@ const LabOrdersForm = () => {
 
       if (token?.id) {
         try {
+          // https://backend.trtpep.com
           const response = await axios.post(
             "https://backend.trtpep.com/api/create-payment-intent",
             {
