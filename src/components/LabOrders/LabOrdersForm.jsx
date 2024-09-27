@@ -34,8 +34,8 @@ const LabOrdersForm = () => {
     billingAddressLine2: "",
     city: "",
     zipCode: "",
-    // amount: "124.95",
-    amount: "1",
+    amount: "124.95",
+    // amount: "1",
     state: "",
   });
   const [isNewPatient, setIsNewPatient] = useState(null);
