@@ -18,10 +18,10 @@ const WeightLossTherapy = () => {
         </div>
         <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start gap-y-4 px-4 md:pr-8 lg:pr-28">
           <h1 className="text-[40px] font-semibold text-black lg:tracking-tight">
-          WEIGHT LOSS THERAPY
+            WEIGHT LOSS THERAPY
           </h1>
           <p className="text-gray-500 font-bold text-base">
-          TRANSFORM YOUR BODY WITH TARGETED BENEFITS
+            HELP POTENTIAL BENEFITS SUCH AS:
           </p>
           <div className="w-full pt-2">
             <div className="flex items-center justify-start gap-2 pb-2">
@@ -62,7 +62,10 @@ const WeightLossTherapy = () => {
             </div>
           </div>
           <div className="mt-2">
-          <Link to={'/testosterone-replacement-therapy/'} className="bg-color flex items-center gap-1 text-white text-sm font-medium px-6 py-3 transition-all duration-300 rounded-full uppercase">
+            <Link
+              to={"/testosterone-replacement-therapy/"}
+              className="bg-color flex items-center gap-1 text-white text-sm font-medium px-6 py-3 transition-all duration-300 rounded-full uppercase"
+            >
               enroll now
               <RiArrowRightUpLine className="text-lg" />
             </Link>

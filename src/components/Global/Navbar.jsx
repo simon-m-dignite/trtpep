@@ -301,6 +301,14 @@ const Navbar = () => {
               </div>
             )}
           </li>
+          <li>
+            <Link
+              to="/practitioners"
+              className={`text-[15px] font-semibold uppercase hover:text-[#c00000] transition-all duration-300`}
+            >
+              practitioners
+            </Link>
+          </li>
           <li className="relative">
             <button
               onMouseEnter={handleShowPayNowLinksMouseEnter}

@@ -4,7 +4,9 @@ const ContentSection = () => {
   return (
     <div className="w-full py-24 horizontal-padding flex flex-col gap-y-20">
       <div>
-        <h2 className="text-2xl font-semibold mx-auto text-center">WHAT IS TIRZEPATIDE THERAPY?</h2>
+        <h2 className="text-2xl font-semibold mx-auto text-center">
+          WHAT IS TIRZEPATIDE THERAPY?
+        </h2>
         <p className="text-gray-600 mt-4">
           Tirzepatide is a synthetic peptide composed of 39 amino acids that
           acts as a dual agonist for glucagon-like peptide-1 (GLP-1) and
@@ -12,7 +14,8 @@ const ContentSection = () => {
           hormones are secreted in response to nutrient intake and play a
           crucial role in stimulating insulin secretion. By harnessing the
           combined effects of GLP-1 and GIP, Tirzepatide offers exceptional
-          glycemic control and metabolic benefits.
+          glycemic control and metabolic benefits. While this is primarily a
+          drug used in diabetics, it has been shown to assist in weight loss.
         </p>
       </div>
 
@@ -25,13 +28,17 @@ const ContentSection = () => {
           />
         </div>
         <div>
-          <h2 className="text-2xl font-semibold">How Tirzepatide Works</h2>
+          <h2 className="text-2xl font-semibold">
+            How Tirzepatide Works In Weight Loss
+          </h2>
           <p className="text-gray-600 mt-4">
-            Tirzepatide stimulates insulin secretion from the pancreas by acting
-            as both a GLP-1 and GIP agonist. Additionally, it increases the
-            levels of adiponectin, a hormone that helps regulate blood glucose
-            levels. This dual action provides superior hyperglycemic control
-            compared to peptides that act solely as GLP-1 agonists.
+            Tirzepatide promotes weight loss by decreasing appetite and
+            prolonging feelings of fullness. It has been shown to mimick certain
+            natural hormones in the body, including GIP and GLP-1 receptors,
+            which curb appetite, boost metabolism, reduce calorie intake, and
+            improve blood sugar control. Tirzepatide also slows the movement of
+            food from the stomach into the small intestine, making you feel full
+            more quickly and for a longer period of time.
           </p>
         </div>
       </div>
@@ -46,9 +53,9 @@ const ContentSection = () => {
             blood sugar levels and improving overall metabolic health. By acting
             as both a GLP-1 and GIP agonist, Tirzepatide provides a range of
             benefits, from weight loss support to enhanced cardiovascular
-            health. This dual-action therapy is an effective solution for those
-            looking to achieve better control over their blood glucose levels
-            and improve their overall health and well-being.
+            health. This dual-action therapy may be an effective solution for
+            those looking to achieve better control weight and improve their
+            overall health and well-being.
           </p>
         </div>
         <div>

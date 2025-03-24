@@ -37,6 +37,7 @@ const TirzepatideTherapy = lazy(() =>
 const PaymentSuccessPage = lazy(() =>
   import("../pages/success/PaymentSuccessPage")
 );
+const Practitioner = lazy(() => import("../pages/practitioner/Practitioner"));
 
 const TermsAndConditoins = lazy(() =>
   import("../pages/PrivacyPolicy/TermsAndConditions")
@@ -65,6 +66,11 @@ export const routes = [
     title: "Contact Us Page",
     url: "/contact-testosterone-replacement",
     page: <Layout pages={<ContactUs />} />,
+  },
+  {
+    title: "Practitioner Page",
+    url: "/practitioners",
+    page: <Layout pages={<Practitioner />} />,
   },
   {
     title: "Blogs Page",

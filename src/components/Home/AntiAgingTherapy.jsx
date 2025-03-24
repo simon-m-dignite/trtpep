@@ -11,7 +11,7 @@ const AntiAgingTherapy = () => {
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-10">
         <div className="col-span-2 lg:col-span-1 flex flex-col items-start justify-start gap-y-4 px-4 md:pl-8 lg:pl-28">
           <h1 className="text-[40px] font-semibold text-black">
-            PEPTIDE THERAPY
+            PEPTIDE MAY HELP:
           </h1>
           <p className="text-gray-500 font-bold text-base">
             GROWTH HORMONE RELEASING PEPTIDES
@@ -37,7 +37,9 @@ const AntiAgingTherapy = () => {
               <div className="">
                 <IoMdCheckmark className="text-color text-lg" />
               </div>
-              <p className="text-gray-500">REJUVENATE AND FEEL YOUNGER</p>
+              <p className="text-gray-500">
+                YOU FEEL YOUNGER AND MORE REJUVENATED
+              </p>
             </div>
             <div className="flex items-center justify-start gap-2 py-2">
               <div className="">
@@ -49,13 +51,15 @@ const AntiAgingTherapy = () => {
               <div className="">
                 <IoMdCheckmark className="text-color text-lg" />
               </div>
-              <p className="text-gray-500">ACCELERATE FAT METABOLISM</p>
+              <p className="text-gray-500">BURNING MORE FAT</p>
             </div>
             <div className="flex items-center justify-start gap-2 py-3">
               <div className="">
                 <IoMdCheckmark className="text-color text-lg" />
               </div>
-              <p className="text-gray-500">GAIN LEAN MUSCLE MASS</p>
+              <p className="text-gray-500">
+                SEE IMPROVEMENT IN LEAN MUSCLE MASS
+              </p>
             </div>
           </div>
           <div className="mt-2">

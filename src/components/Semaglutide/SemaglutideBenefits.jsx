@@ -6,7 +6,7 @@ const SemaglutideBenefits = () => {
   return (
     <div className="w-full pt-10 pb-20 px-4 md:px-8 lg:px-40">
       <h4 className="text-2xl font-semibold mx-auto text-center">
-        BENEFITS OF SEMAGLUTIDE
+        POTENTIAL BENEFITS OF SEMAGLUTIDE
       </h4>
 
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-6 mt-8">

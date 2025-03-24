@@ -46,9 +46,9 @@ const HcgContent = () => {
                   <MdOutlineKeyboardArrowRight className="text-white h-4 w-5" />
                 </div>
                 <p>
-                  Preserve Testicular Function & Size: While TRT may lead to
-                  testicular shrinkage, HCG mimics natural luteinizing hormone
-                  to maintain testicular size and vitality.
+                  HCG may Preserve Testicular Function & Size: While TRT may
+                  lead to testicular shrinkage, HCG mimics natural luteinizing
+                  hormone to maintain testicular size and vitality.
                 </p>
               </div>
               <div className="text-gray-600 flex items-start w-full">
@@ -56,7 +56,7 @@ const HcgContent = () => {
                   <MdOutlineKeyboardArrowRight className="text-white h-4 w-5" />
                 </div>
                 <p>
-                  Boost Testosterone Naturally: TRT provides direct
+                  HCG may Boost Testosterone Naturally: TRT provides direct
                   testosterone, but HCG stimulates natural production, ensuring
                   a balanced testosterone boost.
                 </p>
@@ -66,8 +66,8 @@ const HcgContent = () => {
                   <MdOutlineKeyboardArrowRight className="text-white h-4 w-5" />
                 </div>
                 <p>
-                  Enhance Fertility: Concerned about future fatherhood? HCG
-                  supports fertility alongside TRT, maintaining or even
+                  HCG may Enhance Fertility: Concerned about future fatherhood?
+                  HCG supports fertility alongside TRT, maintaining or even
                   enhancing sperm count.
                 </p>
               </div>
@@ -76,7 +76,7 @@ const HcgContent = () => {
                   <MdOutlineKeyboardArrowRight className="text-white h-4 w-5" />
                 </div>
                 <p>
-                  Balance Estrogen Levels: HCG helps regulate
+                  HCG may Balance Estrogen Levels: HCG helps regulate
                   testosterone-to-estrogen ratios, optimizing TRT benefits
                   without estrogen-related concerns.
                 </p>
@@ -86,9 +86,9 @@ const HcgContent = () => {
                   <MdOutlineKeyboardArrowRight className="text-white h-4 w-5" />
                 </div>
                 <p>
-                  Promote Holistic Well-being: The TRT-HCG combo enhances mood,
-                  energy, and overall vitality, offering a comprehensive
-                  approach to male health and wellness.
+                  HCG may Promote Holistic Well-being: The TRT-HCG combo
+                  enhances mood, energy, and overall vitality, offering a
+                  comprehensive approach to male health and wellness.
                 </p>
               </div>
             </div>
@@ -96,7 +96,7 @@ const HcgContent = () => {
         </div>
 
         <p className="text-gray-600">
-          At TRT PEP, we pride ourselves on providing comprehensive care that
+          At TRTPEP, we pride ourselves on providing comprehensive care that
           includes access to HCG—a vital component often overlooked by other
           clinics and pharmacies. Whether you're on TRT and need to preserve
           optimal testicular function, seeking to enhance your natural
@@ -106,18 +106,18 @@ const HcgContent = () => {
         </p>
 
         <h3 className="text-3xl font-semibold mt-4 mx-auto">
-          Your Trusted HCG Provider – TRT PEP Leads the Way!
+          Your Trusted HCG Provider – TRTPEP Leads the Way!
         </h3>
         <p className="text-gray-600 xl:w-[90%] mx-auto">
           In today’s healthcare landscape, 99% of clinics have discontinued HCG
           services, leaving many men searching for this essential hormone. At
-          TRT PEP, we stand apart as one of the few clinics steadfastly
-          committed to providing HCG to our valued patients. Whether you’re
-          navigating TRT without HCG elsewhere, boosting natural testosterone
-          levels, or enhancing fertility, TRT PEP shines as a rare beacon in a
-          sea of uncertainty. When other doors close, ours remains wide open.
-          For uncompromising quality and assurance in your HCG needs, make the
-          right choice: Choose TRT PEP.
+          TRTPEP, we stand apart as one of the few clinics steadfastly committed
+          to providing HCG to our valued patients. Whether you’re navigating TRT
+          without HCG elsewhere, boosting natural testosterone levels, or
+          enhancing fertility, TRTPEP shines as a rare beacon in a sea of
+          uncertainty. When other doors close, ours remains wide open. For
+          uncompromising quality and assurance in your HCG needs, make the right
+          choice: Choose TRTPEP.
         </p>
 
         {/* <h4 className="text-2xl font-semibold mt-10">

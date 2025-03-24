@@ -119,9 +119,9 @@ const ExistingPatientSearchForm = () => {
           />
           <label className="text-sm" htmlFor="terms-and-conditions">
             I agree to the "Terms & Conditions" and acknowledge that I will not
-            share, copy, or disclose any information from TRT PEP's website,
+            share, copy, or disclose any information from TRTPEP's website,
             including medication lists, dosages, or pricing, without prior
-            written consent from TRT PEP.
+            written consent from TRTPEP.
           </label>
         </div>
 

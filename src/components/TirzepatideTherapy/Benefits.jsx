@@ -1,12 +1,15 @@
-import React from 'react'
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { TirzepatideTherapyBenefits1, TirzepatideTherapyBenefits2 } from '../../constants/TirzepatideTherapyBenefits';
+import React from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import {
+  TirzepatideTherapyBenefits1,
+  TirzepatideTherapyBenefits2,
+} from "../../constants/TirzepatideTherapyBenefits";
 
 const Benefits = () => {
   return (
     <div className="w-full pt-10 pb-20 px-4 md:px-8 lg:px-60">
       <h4 className="text-2xl font-semibold mx-auto text-center uppercase">
-        BENEFITS OF Tirzepatide Therapy
+        POTENTIAL BENEFITS OF Tirzepatide Therapy
       </h4>
 
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-6 mt-8">
@@ -42,7 +45,7 @@ const Benefits = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Benefits
+export default Benefits;

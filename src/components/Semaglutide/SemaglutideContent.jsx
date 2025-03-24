@@ -4,7 +4,9 @@ const SemaglutideContent = () => {
   return (
     <div className="w-full py-24 border-t horizontal-padding flex flex-col gap-y-20">
       <div>
-        <h2 className="text-2xl font-semibold mx-auto text-center">What is Semaglutide Therapy?</h2>
+        <h2 className="text-2xl font-semibold mx-auto text-center">
+          What is Semaglutide Therapy?
+        </h2>
         <p className="text-gray-600 mt-4">
           Semaglutide is a synthetic peptide modeled after the naturally
           occurring hormone glucagon-like peptide-1 (GLP-1). As a GLP-1 receptor
@@ -29,9 +31,9 @@ const SemaglutideContent = () => {
           <p className="text-gray-600 mt-4">
             Semaglutide stimulates the body's natural insulin secretion while
             inhibiting the release of glucagon. This dual action helps to lower
-            blood glucose levels, making it an effective treatment for managing
-            blood sugar. By maintaining a balanced blood glucose level,
-            Semaglutide supports overall metabolic health.
+            blood glucose levels, potentially making it an effective treatment
+            for managing blood sugar. By maintaining a balanced blood glucose
+            level, Semaglutide supports overall metabolic health.
           </p>
         </div>
       </div>
@@ -42,13 +44,13 @@ const SemaglutideContent = () => {
             Why Choose Semaglutide Therapy?
           </h2>
           <p className="text-gray-600 mt-4">
-            Semaglutide therapy offers a comprehensive approach to managing
-            blood sugar levels and improving overall metabolic health. By
-            mimicking the natural hormone GLP-1, Semaglutide provides a range of
-            benefits, from weight loss support to enhanced cardiovascular
-            health. This therapy is an effective solution for those looking to
-            achieve better control over their blood glucose levels and improve
-            their overall health and well-being.
+            Semaglutide therapy is considered to be a comprehensive approach to
+            managing blood sugar levels and improving overall metabolic health.
+            By mimicking the natural hormone GLP-1, Semaglutide provides a range
+            of benefits, from weight loss support to enhanced cardiovascular
+            health. This therapy may be an effective solution for those looking
+            to achieve better control over their blood glucose levels and
+            improve their overall health and well-being.
           </p>
         </div>
         <div>

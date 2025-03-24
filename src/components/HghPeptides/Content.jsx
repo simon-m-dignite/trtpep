@@ -14,10 +14,10 @@ const Content = () => {
           body, consisting of small chains of amino acids—the basic building
           blocks of proteins. These molecules act as messengers, directing
           cellular activities crucial for functions such as tissue repair and
-          hormone regulation. For instance, Tesamorelin emulates the actions of
-          growth hormone-releasing hormone (GHRH), facilitating essential
-          biological processes like hormone production and anti-inflammatory
-          responses.
+          hormone regulation. For instance, Tesamorelin mimics the actions of
+          growth hormone-releasing hormone (GHRH), potentially improving
+          essential biological processes like hormone production and
+          anti-inflammatory responses.
         </p>
       </div>
 
@@ -26,15 +26,18 @@ const Content = () => {
       </h1>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
-          <img src="/TESAMORELIN-IMAGE-1.webp" alt="" className="brightness-95 rounded-2xl h-[250px] w-full object-cover" />
+          <img
+            src="/TESAMORELIN-IMAGE-1.webp"
+            alt=""
+            className="brightness-95 rounded-2xl h-[250px] w-full object-cover"
+          />
         </div>
         <div>
           <h2 className="text-xl font-semibold">Tesamorelin</h2>
           <p className="text-gray-600 mt-3">
-            Tesamorelin originates from scientific research focused on hormone
-            regulation and metabolism. Specifically developed to stimulate the
-            body's production and release of growth hormone-releasing hormone
-            (GHRH).
+            Tesamorelin is a synthetic peptide containing 44 Amino acids, which
+            mimics the growth hormone-releasing hormone (GHRH) in structure and
+            function.
           </p>
         </div>
       </div>
@@ -59,18 +62,33 @@ const Content = () => {
           </p>
         </div>
         <div>
-          <img src="/tesamorelin-2.jpg" alt="" className="brightness-95 rounded-2xl" />
+          <img
+            src="/tesamorelin-2.jpg"
+            alt=""
+            className="brightness-95 rounded-2xl"
+          />
         </div>
       </div>
 
       <div className="mt-10">
         <h2 className="text-xl font-semibold">Tesamorelin VS Ipamorelin</h2>
         <p className="text-gray-600 mt-3">
-        Following the FDA's discontinuation of the popular peptide Ipamorelin, the question arises: Can Tesamorelin deliver similar benefits?
+          Following the FDA's discontinuation of the popular peptide Ipamorelin,
+          the question arises: Can Tesamorelin potentially deliver similar
+          benefits?
         </p>
         <p className="text-gray-600 mt-3">
-        The answer is yes, and more! Both Tesamorelin and Ipamorelin enhance growth hormone (GH) production, benefiting muscle growth, exercise recovery, sleep quality, and improvements in hair, skin, and nails. These similarities highlight their role in comprehensive wellness and anti-aging strategies. However, Tesamorelin distinguishes itself by its notable effectiveness in targeting and reducing visceral abdominal fat. This specific fat-reducing capability sets Tesamorelin apart, offering significant advantages over Ipamorelin and other peptides. This unique attribute makes Tesamorelin an excellent choice for those seeking the combined benefits of Ipamorelin, with superior capabilities in fat loss.
-
+          The answer is yes, and more! Both Tesamorelin and Ipamorelin enhance
+          growth hormone (GH) production, benefiting muscle growth, exercise
+          recovery, sleep quality, and improvements in hair, skin, and nails.
+          These potential benefits similarities highlight GH's role in
+          comprehensive wellness and anti-aging strategies. However, Tesamorelin
+          distinguishes itself by its notable effectiveness in targeting and
+          reducing visceral abdominal fat. This specific fat-reducing capability
+          sets Tesamorelin apart, offering significant advantages over
+          Ipamorelin and other peptides. This unique attribute makes Tesamorelin
+          an excellent choice for those seeking the combined benefits of
+          Ipamorelin, with superior capabilities in fat loss.
         </p>
       </div>
     </div>

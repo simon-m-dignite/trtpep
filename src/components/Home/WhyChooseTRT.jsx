@@ -21,7 +21,9 @@ const WhyChooseTRT = () => {
               <h5 className="text-black font-semibold text-xl mt-2">
                 Lightning-Fast Enrollment
               </h5>
-              <p className="text-gray-500">Sign up in just a few minutes!</p>
+              <p className="text-gray-500">
+                Sign up on-line right here in just a few minutes!
+              </p>
             </div>
           </div>
           <div className="w-full flex flex-col items-center gap-3">
@@ -35,8 +37,9 @@ const WhyChooseTRT = () => {
                 Expert Consultations
               </h5>
               <p className="text-gray-500 text-start">
-                Complete your intake and get instant email confirmation of your
-                provider appointment.
+                Complete your history intake, privacy form and needed consents
+                right on-line, and receive email confirmation of your provider
+                appointment.
               </p>
             </div>
           </div>
@@ -51,8 +54,8 @@ const WhyChooseTRT = () => {
                 Speedy Delivery
               </h5>
               <p className="text-start text-gray-500">
-                After your consultation, your medications are on their way to
-                your door!
+                After your consultation, if medications are appropriate for you,
+                they will be shipped directly to you.
               </p>
             </div>
           </div>

@@ -9,14 +9,16 @@ const Hero = () => {
       className={`${styles.paddingHorizontal} py-12 lg:pb-12 pt-36 lg:pt-32 home-hero min-h-screen lg:h-[75vh]`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-3 h-full gap-x-6 gap-y-8">
-        <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center items-center md:items-start text-center md:text-start pt-20 md:pt-0 gap-6 lg:gap-10">
+        <div className="col-span-3 lg:col-span-2 h-full flex flex-col justify-center items-center md:items-start text-center md:text-start  md:pt-0 lg:pt-6 gap-6 lg:gap-10">
           <h1 className="text-white text-4xl xl:text-7xl font-semibold tracking-tighter">
             Revitalize Your Health Online!
           </h1>
-          <h3 className="text-white font-medium text-lg md:text-base lg:text-xl">
-            Unlock affordable solutions for low testosterone and anti-aging
-            without leaving your home. Get expert-prescribed medications
-            delivered straight to your doorstep!
+          <h3 className="text-white font-medium text-lg md:text-base lg:text-lg">
+            Unlock convenient & affordable solutions for testosterone,
+            anti-aging or weight loss therapy! Meet on-line with an expert,
+            licensed provider and experience the safe and private delivery of
+            prescribed medications right to your door from an FDA approved
+            compounding pharmacy.
           </h3>
           <h3 className="text-white font-medium text-lg md:text-base">
             Licensed Providers, Unmatched Convenience
@@ -50,7 +52,7 @@ const Hero = () => {
             </p>
             <p className="text-sm text-white">
               Our package includes a provider consultation, Testosterone
-              Cypionate, Aromatase inhibitor, syringes, and shipping.
+              Cypionate w/aromatase inhibitor, syringes, and shipping.
             </p>
             <p className="text-sm text-white">NO HIDDEN FEES.</p>
             <p className="text-sm text-white">

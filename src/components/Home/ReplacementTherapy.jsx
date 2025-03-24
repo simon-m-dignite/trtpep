@@ -21,7 +21,8 @@ const ReplacementTherapy = () => {
             TESTOSTERONE REPLACEMENT THERAPY
           </h1>
           <p className="text-gray-500 font-bold text-base">
-          TRANSFORMATIVE AND EFFECTIVE. LIFE-CHANGING RESULTS
+            TRANSFORMATIVE AND EFFECTIVE, when levels are low as TRT may offer
+            the following benefits:
           </p>
           <div className="w-full pt-2">
             <div className="flex items-center justify-start gap-2 pb-2">
@@ -62,7 +63,10 @@ const ReplacementTherapy = () => {
             </div>
           </div>
           <div className="mt-2">
-            <Link to={'/testosterone-replacement-therapy/'} className="bg-color flex items-center gap-1 text-white text-sm font-medium px-6 py-3 transition-all duration-300 rounded-full uppercase">
+            <Link
+              to={"/testosterone-replacement-therapy/"}
+              className="bg-color flex items-center gap-1 text-white text-sm font-medium px-6 py-3 transition-all duration-300 rounded-full uppercase"
+            >
               enroll now
               <RiArrowRightUpLine className="text-lg" />
             </Link>

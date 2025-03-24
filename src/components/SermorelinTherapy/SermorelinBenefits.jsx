@@ -1,12 +1,12 @@
-import React from 'react'
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { benefits1, benefits2 } from '../../constants/SermorelinBenefits';
+import React from "react";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { benefits1, benefits2 } from "../../constants/SermorelinBenefits";
 
 const SermorelinBenefits = () => {
   return (
     <div className="w-full pt-10 pb-20 px-4 md:px-8 lg:px-60">
       <h4 className="text-2xl font-semibold mx-auto text-center uppercase">
-        BENEFITS OF Sermorelin Therapy
+        POTENTIAL BENEFITS OF Sermorelin Therapy
       </h4>
 
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-6 mt-8">
@@ -42,7 +42,7 @@ const SermorelinBenefits = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SermorelinBenefits
+export default SermorelinBenefits;

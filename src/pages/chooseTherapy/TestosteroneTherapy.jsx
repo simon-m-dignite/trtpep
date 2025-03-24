@@ -5,9 +5,9 @@ import Form from "../../components/TestosteroneTherapy/Form";
 
 const FAQ_DATA = [
   {
-    question: "Which states does TRT PEP operate in?",
+    question: "Which states does TRTPEP operate in?",
     answer:
-      "TRT PEP operates nationwide, excluding Alabama, Alaska, Arkansas, and Hawaii.",
+      "TRTPEP operates nationwide, excluding Alabama, Alaska, Arkansas, and Hawaii.",
   },
   {
     question: "Where do my medications come from?",
@@ -188,7 +188,7 @@ const TestosteroneTherapy = () => {
           undiagnosed and untreated conditions.
         </p>
 
-        <h4 className="text-2xl font-semibold mt-10 mx-auto">
+        {/* <h4 className="text-2xl font-semibold mt-10 mx-auto">
           Frequently Asked Questions
         </h4>
 
@@ -217,7 +217,7 @@ const TestosteroneTherapy = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
       <Form />
     </div>

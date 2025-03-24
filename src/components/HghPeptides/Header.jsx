@@ -7,10 +7,10 @@ const Header = () => {
         TESAMORELIN THERAPY
       </h1>
       <h5 className="font-semibold text-sm tracking-wide mt-4">
-        Elevate Your Vitality, Embrace Renewal
+        Elevate Your Vitality, Enhance Renewal
       </h5>
       <h6 className="text-xs font-medium tracking-wide">
-        Growth Hormone Peptides for only $233/Month *3 Months Minimum Order
+        Peptides for only $233/Month *3 Months Minimum Order
       </h6>
       <a
         href="#enrollment-form"

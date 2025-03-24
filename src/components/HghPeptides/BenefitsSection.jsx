@@ -1,12 +1,12 @@
 import React from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import {benefits1, benefits2} from "../../constants/benefits"
+import { benefits1, benefits2 } from "../../constants/benefits";
 
 const BenefitsSection = () => {
   return (
     <div className="w-full pt-10 pb-20 px-4 md:px-8 lg:px-60">
       <h4 className="text-2xl font-semibold mx-auto text-center">
-        BENEFITS OF TESAMORELIN
+        POTENTIAL BENEFITS OF TESAMORELIN
       </h4>
 
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-x-6 mt-8">

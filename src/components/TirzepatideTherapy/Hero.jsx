@@ -8,7 +8,7 @@ const Hero = () => {
     >
       <h1 className="text-4xl lg:text-5xl text-white font-normal lg:leading-[60px] tracking-tight">
         Boost Your Energy and Control <br />
-        Blood Sugarwith Tirzepatide!
+        The Apetite With Tirzepatide!
       </h1>
       <h2 className="text-white text-sm">
         Just $596/month for a 2.5-month supply at $1,490*

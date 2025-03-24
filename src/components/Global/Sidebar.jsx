@@ -43,6 +43,13 @@ const Sidebar = ({ handleShowNav }) => {
           blog
         </Link>
         <Link
+          to="/practitioners"
+          className="font-bold text-base uppercase border-b py-3 w-full block"
+          onClick={handleLinkClick}
+        >
+          practitioners
+        </Link>
+        <Link
           to="/faq"
           className="font-bold text-base uppercase border-b py-3 w-full block"
           onClick={handleLinkClick}

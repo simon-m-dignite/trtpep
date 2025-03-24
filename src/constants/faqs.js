@@ -1,8 +1,8 @@
 export const FAQS = [
   {
-    question: "Which states does TRT PEP operate in?",
+    question: "Which states does TRTPEP operate in?",
     answer:
-      "TRT PEP operates nationwide, excluding Alabama, Alaska, Arkansas, and Hawaii.",
+      "TRTPEP operates nationwide, excluding Alabama, Alaska, Arkansas, and Hawaii.",
   },
   {
     question: "Where do my medications come from?",
@@ -52,12 +52,12 @@ export const FAQS = [
       "All medications are shipped via FedEx, and you can track your package using the FedEx mobile app.",
   },
   {
-    question: "How do I order labs from TRT PEP?",
+    question: "How do I order labs from TRTPEP?",
     answer:
       "You can order labs online, and within 24 hours, you'll receive a lab order via email. Simply take this to any LAB CORP for your blood draw, with results available in 2-3 days.",
   },
   {
-    question: "Do I need to lower my Testosterone levels to switch to TRT PEP?",
+    question: "Do I need to lower my Testosterone levels to switch to TRTPEP?",
     answer:
       "No, elevated levels are expected if you're transferring from another clinic. We don't require patients to lower their testosterone levels unnecessarily.",
   },

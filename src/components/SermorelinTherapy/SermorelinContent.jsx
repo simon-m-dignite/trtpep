@@ -8,16 +8,21 @@ const SermorelinContent = () => {
       <div>
         <h1 className="text-3xl font-semibold">WHAT IS SERMORELIN THERAPY?</h1>
         <p className="text-gray-600 mt-2">
-          Sermorelin is a synthetic peptide designed to mimic the action of
-          growth hormone-releasing hormone (GHRH), composed of 29 amino acids.
-          As a growth hormone secretagogue (GHS), Sermorelin activates the
-          pituitary gland to stimulate the production and secretion of growth
-          hormone (GH).
+          To properly grow and develop, your body needs human growth hormone
+          (hGH). This is a peptide hormone produced in the tiny part of your
+          brain called the pituitary gland. Sermorelin is a synthetic form of
+          GHRH, composed of 29 amino acids. Sermorelin is used as a medication
+          for low HGH levels because it activates the pituitary gland to
+          stimulate the production and secretion of growth hormone (GH).
         </p>
       </div>
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
-          <img src="/tesamorelin-3.jpg" alt="" className="brightness-95 rounded-2xl" />
+          <img
+            src="/tesamorelin-3.jpg"
+            alt=""
+            className="brightness-95 rounded-2xl"
+          />
         </div>
         <div>
           <h2 className="text-xl font-semibold">How Sermorelin Works</h2>
@@ -43,7 +48,11 @@ const SermorelinContent = () => {
           </p>
         </div>
         <div>
-          <img src="/tesamorelin-2.jpg" alt="" className="brightness-95 rounded-2xl" />
+          <img
+            src="/tesamorelin-2.jpg"
+            alt=""
+            className="brightness-95 rounded-2xl"
+          />
         </div>
       </div>
     </div>
