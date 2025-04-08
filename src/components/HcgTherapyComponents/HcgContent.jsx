@@ -27,7 +27,7 @@ const HcgContent = () => {
         <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-x-10 gap-y-6 mb-10">
           <div>
             <img
-              src="/hcg-therapy-image.jpg"
+              src="/hcg-smaller.jpg"
               alt="hcg-therapy-image"
               className="brightness-95 rounded-2xl"
             />

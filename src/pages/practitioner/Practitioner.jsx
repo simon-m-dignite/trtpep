@@ -5,7 +5,7 @@ const Practitioner = () => {
     <div className="bg-white mt-36 text-gray-800">
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-10 text-gray-900">
-          Meet TRTPEP's Practitioners
+          PRACTITIONERS & PHARMACIES
         </h1>
 
         {/* Placeholder for photo */}

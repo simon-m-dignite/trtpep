@@ -44,13 +44,14 @@ const SemaglutideContent = () => {
             Why Choose Semaglutide Therapy?
           </h2>
           <p className="text-gray-600 mt-4">
-            Semaglutide therapy is considered to be a comprehensive approach to
-            managing blood sugar levels and improving overall metabolic health.
-            By mimicking the natural hormone GLP-1, Semaglutide provides a range
-            of benefits, from weight loss support to enhanced cardiovascular
-            health. This therapy may be an effective solution for those looking
-            to achieve better control over their blood glucose levels and
-            improve their overall health and well-being.
+            Semaglutide therapy is considered to be part of a comprehensive
+            approach to managing blood sugar levels and improving overall
+            metabolic health. By mimicking the natural hormone GLP-1,
+            Semaglutide provides a range of benefits, from weight loss support
+            to enhanced cardiovascular health. This therapy may be an effective
+            solution for those looking to achieve better control over their
+            blood glucose levels and improve their overall health and
+            well-being.
           </p>
         </div>
         <div>

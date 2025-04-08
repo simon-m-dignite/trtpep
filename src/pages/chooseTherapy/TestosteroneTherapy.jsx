@@ -67,8 +67,8 @@ const TestosteroneTherapy = () => {
         </p>
 
         <h3 className="text-2xl md:text-3xl font-semibold mt-4">
-          Men undergoing Testosterone Replacement Therapy can anticipate a range
-          of benefits:
+          MEN UNDERGOING TESTOSTERONE REPLACEMENT THERAPY MAY EXPERIENCE THE
+          FOLLOWING BENEFITS:
         </h3>
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 my-6">
