@@ -5,6 +5,7 @@ import NewPatientSuccessPage from "../pages/newPatient/NewPatientSuccessPage";
 import NewPatientFailure from "../pages/newPatient/NewPatientFailure";
 import LabOrderFailurePage from "../pages/labOrders/LabOrderFailurePage";
 import LabOrderSuccessPage from "../pages/labOrders/LabOrderSuccessPage";
+import Pharmacie from "../pages/pharmacies/Pharmacie";
 
 const NewPatient = lazy(() => import("../pages/newPatient/NewPatient"));
 const ContactUs = lazy(() => import("../pages/aboutus/ContactUs"));
@@ -71,6 +72,11 @@ export const routes = [
     title: "Practitioner Page",
     url: "/practitioners",
     page: <Layout pages={<Practitioner />} />,
+  },
+  {
+    title: "Pharmacie Page",
+    url: "/pharmacie",
+    page: <Layout pages={<Pharmacie />} />,
   },
   {
     title: "Blogs Page",

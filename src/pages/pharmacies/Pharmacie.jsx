@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { fetchPractitioner } from "../../services/practiotionerServices";
+import { fetchPharmacie } from "../../services/practiotionerServices";
 
-const Practitioner = () => {
+const Pharmacie = () => {
   const [practitioner, setPractitioner] = useState([]);
 
   useEffect(() => {
     const getPractitioner = async () => {
-      const res = await fetchPractitioner();
+      const res = await fetchPharmacie();
       console.log(res.data);
       setPractitioner(res.data);
     };
@@ -17,11 +17,11 @@ const Practitioner = () => {
     <div className="bg-white mt-36 text-gray-800">
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-10 text-gray-900">
-          PRACTITIONERS & PHARMACIES
+           PHARMACIES
         </h1>
         <p
           dangerouslySetInnerHTML={{
-            __html: practitioner[0].content,
+            __html: practitioner[0]?.content,
           }}
         />
         {/* Placeholder for photo */}
@@ -97,4 +97,4 @@ const Practitioner = () => {
   );
 };
 
-export default Practitioner;
+export default Pharmacie;
